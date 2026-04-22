@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Meet the Team · Invest Like a Warrior</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Meet the warriors behind Invest Like a Warrior." />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BL0E8Z8863"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BL0E8Z8863');
+  </script>
+
+  <style>
+    :root {
+      --gold: #d9b15c;
+      --gold-soft: rgba(217,177,92,0.12);
+      --gold-border: rgba(217,177,92,0.3);
+      --bg: #050910;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-display: Georgia, "Times New Roman", serif;
+      --max: 1080px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #050910;
+      color: var(--text);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Nav ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5,9,16,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo img {
+      height: 32px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-dropdown { position: relative; }
+
+    .nav-dropdown-toggle {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-dropdown-toggle::after {
+      content: '▾';
+      font-size: 0.7rem;
+    }
+
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      padding-top: 12px;
+      min-width: 180px;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-dropdown-menu-inner {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
+
+    .nav-dropdown-menu a {
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: block;
+    }
+
+    .nav-dropdown-menu a:hover {
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+    }
+
+    .btn-nav {
+      background: var(--gold);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 8px 20px;
+      border-radius: 999px;
+      letter-spacing: 0.03em;
+      transition: opacity 0.15s;
+    }
+
+    .btn-nav:hover { opacity: 0.88; }
+
+    /* ── Page header ── */
+    .page-header {
+      background: radial-gradient(circle at 50% 0%, #0f1a2e 0%, #020309 70%);
+      border-bottom: 1px solid var(--border);
+      padding: 80px 32px 72px;
+      text-align: center;
+    }
+
+    .page-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .page-title {
+      font-size: 3rem;
+      font-weight: 700;
+      font-family: var(--font-display);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .page-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* ── Team grid ── */
+    .team-section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 80px 32px 96px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 520px) {
+      .team-grid { grid-template-columns: 1fr; }
+      .page-title { font-size: 2.2rem; }
+    }
+
+    /* ── Staff card ── */
+    .staff-card {
+      background: radial-gradient(circle at top left, #0f172a 0%, #070b14 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .staff-card:hover {
+      border-color: var(--gold-border);
+      transform: translateY(-3px);
+    }
+
+    .staff-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #0c1220;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .staff-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .staff-photo-placeholder {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(217,177,92,0.08);
+      border: 1px solid var(--gold-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+    }
+
+    .staff-info {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .staff-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .staff-title {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .warrior-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 4px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--gold-border);
+      background: var(--gold-soft);
+      font-size: 0.7rem;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+
+    .staff-bio {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-top: 8px;
+      flex: 1;
+    }
+
+    /* ── Peasant card (Bob) ── */
+    .staff-card.is-peasant .staff-photo {
+      background: #080b12;
+    }
+
+    .staff-card.is-peasant .staff-name {
+      color: var(--muted);
+    }
+
+    .peasant-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 4px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(156,163,175,0.2);
+      background: rgba(156,163,175,0.05);
+      font-size: 0.7rem;
+      color: #6b7280;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+
+    /* ── Join card ── */
+    .staff-card.is-open {
+      border-style: dashed;
+      border-color: rgba(255,255,255,0.08);
+      background: transparent;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 24px;
+      min-height: 340px;
+      transition: border-color 0.2s, background 0.2s;
+      text-decoration: none;
+    }
+
+    .staff-card.is-open:hover {
+      border-color: var(--gold-border);
+      background: var(--gold-soft);
+      transform: translateY(-3px);
+    }
+
+    .open-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      opacity: 0.4;
+    }
+
+    .open-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .open-sub {
+      font-size: 0.8rem;
+      color: #4b5563;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .open-cta {
+      font-size: 0.78rem;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--gold-border);
+      padding-bottom: 2px;
+    }
+
+    /* ── Section divider ── */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 32px;
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: #374151;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a class="nav-logo" href="index.html">
+      <img src="assets/ilaw-logo.png" alt="Invest Like a Warrior" onerror="this.style.display='none';this.nextSibling.style.display='block'"/>
+      <span style="display:none;color:var(--gold);font-weight:700;font-family:Georgia,serif;font-size:1rem;">INVEST LIKE A WARRIOR</span>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <span class="nav-dropdown-toggle">About</span>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="index.html#about">About ILAW</a>
+            <a href="index.html#about">About Jamie</a>
+            <a href="index.html#mission">Mission & Values</a>
+            <a href="team.html">Meet the Team</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="index.html#quiz">Take the Quiz</a></li>
+      <li><a href="https://ilaw-app.netlify.app" target="_blank">The App</a></li>
+      <li><a class="btn-nav" href="intake.html">Start Your Campaign</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="page-eyebrow">The Warband</div>
+    <h1 class="page-title">Meet the Team</h1>
+    <p class="page-sub">
+      Every campaign needs a warband. Here are the warriors, agents, and unfortunate volunteers behind Invest Like a Warrior.
+    </p>
+  </section>
+
+  <!-- Team Grid -->
+  <section class="team-section">
+    <div class="team-grid">
+
+      <!-- Jamie Hoffman -->
+      <div class="staff-card">
+        <div class="staff-photo">
+          <div class="staff-photo-placeholder">⚔️</div>
+        </div>
+        <div class="staff-info">
+          <div class="staff-name">Jamie Hoffman</div>
+          <div class="staff-title">Founder & Chief Financial Warlord</div>
+          <div class="warrior-badge">🏴‍☠️ Business Pirate</div>
+          <p class="staff-bio">
+            Built ILAW from a D&D handbook and a stack of personal finance books. 15 years in digital marketing, deep in the AI space, and still convinced the best financial education feels like a campaign worth fighting.
+          </p>
+        </div>
+      </div>
+
+      <!-- The Sage -->
+      <div class="staff-card">
+        <div class="staff-photo">
+          <div class="staff-photo-placeholder">🔮</div>
+        </div>
+        <div class="staff-info">
+          <div class="staff-name">The Sage</div>
+          <div class="staff-title">Master of Markets & Consumer Sentiment</div>
+          <div class="warrior-badge">🪨 Market Viking</div>
+          <p class="staff-bio">
+            Reads the economic runes so you don't have to. The Sage monitors market conditions, consumer sentiment, and financial signals — and translates all of it into warrior guidance inside the app.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bob the Training Dummy -->
+      <div class="staff-card is-peasant">
+        <div class="staff-photo">
+          <div class="staff-photo-placeholder">🪵</div>
+        </div>
+        <div class="staff-info">
+          <div class="staff-name">Bob</div>
+          <div class="staff-title">Training Dummy & Cautionary Tale</div>
+          <div class="peasant-badge">🌾 Peasant</div>
+          <p class="staff-bio">
+            Bob has been with ILAW since day one. He has no emergency fund, no warrior class, and a DTI ratio we don't discuss in polite company. He exists so you don't have to make his mistakes.
+          </p>
+        </div>
+      </div>
+
+      <!-- Join the Team -->
+      <a class="staff-card is-open" href="https://calendly.com/investlikeawarrior" target="_blank">
+        <div class="open-icon">⚔️</div>
+        <div class="open-title">Your Seat at the Table</div>
+        <p class="open-sub">
+          The warband has room for one more. We're looking for warriors who want to build something that matters.
+        </p>
+        <span class="open-cta">Start the Conversation →</span>
+      </a>
+
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <span>© 2026 Invest Like a Warrior LLC · Michigan · All rights reserved.</span>
+    <span>Not a licensed financial advisor. All content is educational.</span>
+  </footer>
+
+</body>
+</html>

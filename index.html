@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Invest Like a Warrior</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Invest Like a Warrior is a financial education platform built on the warrior identity system. Choose your class. Track your ability scores. Win your financial campaign." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Invest Like a Warrior" />
+  <meta property="og:description" content="Your financial life is a campaign. Choose your warrior class and start winning." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://investlikeawarrior.com" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BL0E8Z8863"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BL0E8Z8863');
+  </script>
+
+  <!-- Typeform embed -->
+  <script src="https://embed.typeform.com/next/embed.js"></script>
+
+  <style>
+    :root {
+      --gold: #d9b15c;
+      --gold-soft: rgba(217,177,92,0.12);
+      --gold-border: rgba(217,177,92,0.3);
+      --bg: #050910;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-display: Georgia, "Times New Roman", serif;
+      --max: 1080px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #050910;
+      color: var(--text);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Nav ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5,9,16,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo img {
+      height: 32px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-dropdown {
+      position: relative;
+    }
+
+    .nav-dropdown-toggle {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-dropdown-toggle::after {
+      content: '▾';
+      font-size: 0.7rem;
+    }
+
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      padding-top: 12px;
+      min-width: 180px;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-dropdown-menu-inner {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-menu {
+      display: flex;
+    }
+
+    .nav-dropdown-menu a {
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: block;
+    }
+
+    .nav-dropdown-menu a:hover {
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+    }
+
+    .btn-nav {
+      background: var(--gold);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 8px 20px;
+      border-radius: 999px;
+      letter-spacing: 0.03em;
+      transition: opacity 0.15s;
+    }
+
+    .btn-nav:hover { opacity: 0.88; }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: calc(100vh - 64px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 80px 32px;
+      align-items: center;
+      gap: 64px;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .hero-headline {
+      font-size: 3.4rem;
+      font-weight: 700;
+      line-height: 1.08;
+      font-family: var(--font-display);
+      letter-spacing: 0.02em;
+      margin-bottom: 24px;
+    }
+
+    .hero-headline span { color: var(--gold); }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 40px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 360px;
+    }
+
+    .btn-primary {
+      width: 100%;
+      padding: 16px 24px;
+      border-radius: 12px;
+      border: none;
+      background: var(--gold);
+      color: #000;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transition: transform 0.15s, box-shadow 0.15s;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(217,177,92,0.3);
+    }
+
+    .btn-secondary {
+      width: 100%;
+      padding: 16px 24px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transition: border-color 0.15s, background 0.15s;
+      text-decoration: none;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--gold-border);
+      background: var(--gold-soft);
+    }
+
+    .btn-label { flex: 1; text-align: left; }
+    .btn-meta { font-size: 0.75rem; opacity: 0.6; font-weight: 400; }
+    .btn-arrow { font-size: 1.1rem; opacity: 0.6; }
+
+    .hero-image {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      background: #0f172a;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    /* ── Section base ── */
+    .section {
+      padding: 96px 32px;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      font-family: var(--font-display);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 560px;
+      margin-bottom: 48px;
+    }
+
+    /* ── Mission ── */
+    .mission {
+      background: radial-gradient(circle at 50% 0%, #0f1a2e 0%, #020309 60%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mission-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 96px 32px;
+      text-align: center;
+    }
+
+    .mission-statement {
+      font-size: 1.6rem;
+      font-family: var(--font-display);
+      font-weight: 700;
+      line-height: 1.4;
+      max-width: 700px;
+      margin: 0 auto 48px;
+    }
+
+    .mission-statement span { color: var(--gold); }
+
+    /* ── Values ── */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .value-card {
+      padding: 24px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .value-icon {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    .value-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 8px;
+      letter-spacing: 0.03em;
+    }
+
+    .value-desc {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── Quiz ── */
+    .quiz-section {
+      background: #020309;
+    }
+
+    .quiz-wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 96px 32px;
+    }
+
+    .typeform-embed {
+      margin-top: 40px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    /* ── About ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .about-photo {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      background: #0f172a;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .about-text p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .about-text p:last-child { margin-bottom: 0; }
+
+    /* ── Footer ── */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 32px;
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: #374151;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a class="nav-logo" href="#">
+      <img src="assets/ilaw-logo.png" alt="Invest Like a Warrior" onerror="this.style.display='none';this.nextSibling.style.display='block'"/>
+      <span style="display:none;color:var(--gold);font-weight:700;font-family:Georgia,serif;font-size:1rem;">INVEST LIKE A WARRIOR</span>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <span class="nav-dropdown-toggle">About</span>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="#about">About ILAW</a>
+            <a href="#about">About Jamie</a>
+            <a href="#mission">Mission & Values</a>
+            <a href="team.html">Meet the Team</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="#quiz">Take the Quiz</a></li>
+      <li><a href="https://ilaw-app.netlify.app" target="_blank">The App</a></li>
+      <li><a class="btn-nav" href="intake.html">Start Your Campaign</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section style="background: radial-gradient(circle at 30% 20%, #0f1a2e 0%, #020309 60%, #000 100%);">
+    <div class="hero">
+      <div class="hero-image">
+        <img src="assets/hero-warrior.jpg" alt="Warrior" onerror="this.style.display='none'" />
+      </div>
+
+      <div>
+        <div class="hero-eyebrow">Financial Education · Warrior System</div>
+        <h1 class="hero-headline">
+          Your financial life<br>is a <span>campaign.</span>
+        </h1>
+        <p class="hero-sub">
+          Choose your warrior class. Track your six financial ability scores.
+          Build your Power Object. ILAW turns personal finance into a system
+          you can actually use — built for the ones who were never handed a rulebook.
+        </p>
+
+        <div class="hero-ctas">
+          <a class="btn-primary" href="https://ilaw-app.netlify.app" target="_blank">
+            <span class="btn-label">Access the App <span class="btn-meta">— Free beta</span></span>
+            <span class="btn-arrow">⚔</span>
+          </a>
+          <a class="btn-secondary" href="intake.html">
+            <span class="btn-label">Start Your Campaign</span>
+            <span class="btn-arrow">→</span>
+          </a>
+          <a class="btn-secondary" href="https://warriorinvestor.gumroad.com/l/ubczxr" target="_blank">
+            <span class="btn-label">Download the Ebook</span>
+            <span class="btn-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Mission -->
+  <section class="mission" id="mission">
+    <div class="mission-inner">
+      <div class="section-label">Our Mission</div>
+      <p class="mission-statement">
+        To make financial education feel like<br>
+        <span>something worth fighting for.</span>
+      </p>
+      <p style="font-size:1rem;color:var(--muted);line-height:1.7;max-width:600px;margin:0 auto;">
+        ILAW exists for everyone facing financial warfare — the writers, the dreamers,
+        the nerds, the ones who were never taught. Your financial life is not a problem
+        to be solved. It is a campaign to be won. And the only way to win is to know
+        what kind of warrior you are.
+      </p>
+
+      <!-- Values -->
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">⚔️</div>
+          <div class="value-title">Identity Before Assets</div>
+          <p class="value-desc">We don't tell you what to invest in. We help you discover who you are first. The right strategy finds the right warrior.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🔥</div>
+          <div class="value-title">Financial Warfare Is Real</div>
+          <p class="value-desc">Money is not a hobby. It is a lifelong battle. We take it seriously — and we arm our warriors accordingly.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🛡️</div>
+          <div class="value-title">The Community Is the Strategy</div>
+          <p class="value-desc">Warriors don't win alone. ILAW is a gathering place for builders, thinkers, and fighters who sharpen each other.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">📜</div>
+          <div class="value-title">Built for the Ones Never Taught</div>
+          <p class="value-desc">No jargon. No gatekeeping. No assumption you already know the rules. Everyone starts somewhere.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🏰</div>
+          <div class="value-title">This Platform Belongs to Its Warriors</div>
+          <p class="value-desc">ILAW is still being built. Every member who joins shapes what this becomes. You're not a user — you're a contributor.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🎲</div>
+          <div class="value-title">Rooted in the Tabletop World</div>
+          <p class="value-desc">ILAW was born from a D&D handbook. We honor that origin — and the real, human community that tabletop culture builds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Quiz -->
+  <section class="quiz-section" id="quiz">
+    <div class="quiz-wrap">
+      <div class="section-label">Discover Your Class</div>
+      <h2 class="section-title">What kind of warrior are you?</h2>
+      <p class="section-sub">
+        Ten questions. No right answers. Walk away knowing which of the six warrior
+        classes matches your financial personality — and what that means for how you
+        should be building wealth.
+      </p>
+      <div class="typeform-embed">
+        <div data-tf-live="sn2vkx9ieyg" data-tf-inline-on-mobile style="width:100%;height:560px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- About -->
+  <section id="about">
+    <div class="section">
+      <div class="about-grid">
+        <div class="about-photo">
+          [Photo placeholder]
+        </div>
+        <div class="about-text">
+          <div class="section-label">About</div>
+          <h2 class="section-title">Jamie Hoffman</h2>
+          <p>
+            Jamie Hoffman didn't set out to build a financial education platform.
+            He set out to survive. Facing eviction in his junior year of college,
+            working 30 hours a week at near-minimum wage, and caring for his mother
+            as her health declined, he found himself buried under contradictory advice
+            and overwhelming noise.
+          </p>
+          <p>
+            So he did what any self-respecting nerd would do. He grabbed his Dungeons
+            & Dragons Player's Handbook, sat it next to a stack of personal finance
+            books, and started writing. What emerged was a framework that mapped every
+            warrior class to a different financial personality — and made the game
+            finally feel winnable.
+          </p>
+          <p>
+            Jamie spent 15 years in digital marketing and has worked deep in the AI
+            space. He is based in the Midwest — the quiet heartland of the tabletop
+            gaming world — and believes that in an age of artificial everything, there
+            is something irreplaceable about real warriors gathering to build real wealth together.
+          </p>
+          <p style="font-size:0.8rem;color:#4b5563;margin-top:32px;">
+            ILAW is a financial education platform. Jamie Hoffman is not a certified
+            financial advisor. Nothing on this site constitutes personalized financial advice.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <span>© 2026 Invest Like a Warrior LLC · Michigan · All rights reserved.</span>
+    <span>Not a licensed financial advisor. All content is educational.</span>
+  </footer>
+
+</body>
+</html>

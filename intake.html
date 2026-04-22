@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Start Your Campaign · Invest Like a Warrior</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Begin your financial campaign. Complete the ILAW intake form and a warrior coach will reach out to schedule your first session." />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BL0E8Z8863"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BL0E8Z8863');
+  </script>
+
+  <style>
+    :root {
+      --gold: #d9b15c;
+      --gold-soft: rgba(217,177,92,0.12);
+      --gold-border: rgba(217,177,92,0.3);
+      --bg: #050910;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-display: Georgia, "Times New Roman", serif;
+      --max: 1080px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #050910;
+      color: var(--text);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Nav ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5,9,16,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo img { height: 32px; width: auto; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-dropdown { position: relative; }
+
+    .nav-dropdown-toggle {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-dropdown-toggle::after {
+      content: '▾';
+      font-size: 0.7rem;
+    }
+
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      padding-top: 12px;
+      min-width: 180px;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-dropdown-menu-inner {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
+
+    .nav-dropdown-menu a {
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: block;
+    }
+
+    .nav-dropdown-menu a:hover {
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+    }
+
+    .btn-nav {
+      background: var(--gold);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 8px 20px;
+      border-radius: 999px;
+      letter-spacing: 0.03em;
+      transition: opacity 0.15s;
+    }
+
+    .btn-nav:hover { opacity: 0.88; }
+
+    /* ── Page header ── */
+    .page-header {
+      background: radial-gradient(circle at 50% 0%, #0f1a2e 0%, #020309 70%);
+      border-bottom: 1px solid var(--border);
+      padding: 80px 32px 72px;
+      text-align: center;
+    }
+
+    .page-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .page-title {
+      font-size: 3rem;
+      font-weight: 700;
+      font-family: var(--font-display);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .page-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ── Layout ── */
+    .intake-layout {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 64px 32px 96px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 48px;
+      align-items: start;
+    }
+
+    @media (max-width: 780px) {
+      .intake-layout { grid-template-columns: 1fr; }
+      .page-title { font-size: 2.2rem; }
+    }
+
+    /* ── Form ── */
+    .intake-form-wrap {
+      background: radial-gradient(circle at top left, #0f172a 0%, #070b14 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+    }
+
+    .form-intro {
+      margin-bottom: 36px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .form-intro-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .form-intro-text {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .form-question {
+      margin-bottom: 32px;
+    }
+
+    .form-question:last-of-type { margin-bottom: 0; }
+
+    .form-label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .form-question-text {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.5;
+      margin-bottom: 14px;
+      font-family: var(--font-display);
+    }
+
+    .form-sub {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    textarea, input[type="text"], input[type="email"] {
+      width: 100%;
+      background: #080c18;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      padding: 12px 16px;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    textarea:focus, input[type="text"]:focus, input[type="email"]:focus {
+      border-color: var(--gold-border);
+    }
+
+    textarea { min-height: 100px; }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      cursor: pointer;
+      line-height: 1.4;
+    }
+
+    .checkbox-label input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+
+    .checkbox-label:hover { color: var(--text); }
+
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .radio-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      cursor: pointer;
+      line-height: 1.4;
+    }
+
+    .radio-label input[type="radio"] {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+
+    .radio-label:hover { color: var(--text); }
+
+    .form-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 32px 0;
+    }
+
+    .contact-fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 520px) {
+      .contact-fields { grid-template-columns: 1fr; }
+      .intake-form-wrap { padding: 24px; }
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .btn-submit {
+      width: 100%;
+      margin-top: 24px;
+      padding: 16px 24px;
+      border-radius: 12px;
+      border: none;
+      background: var(--gold);
+      color: #000;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(217,177,92,0.3);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.5;
+      cursor: default;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .form-disclaimer {
+      font-size: 0.72rem;
+      color: #4b5563;
+      line-height: 1.5;
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    /* ── Success state ── */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+    }
+
+    .form-success.is-visible { display: block; }
+
+    .success-icon {
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+    }
+
+    .success-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .success-text {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
+    /* ── Sidebar ── */
+    .intake-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: sticky;
+      top: 80px;
+    }
+
+    .sidebar-card {
+      background: radial-gradient(circle at top left, #0f172a 0%, #070b14 100%);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+    }
+
+    .sidebar-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .sidebar-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .sidebar-text {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .btn-sidebar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 11px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--gold-border);
+      background: var(--gold-soft);
+      color: var(--gold);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      text-decoration: none;
+    }
+
+    .btn-sidebar:hover {
+      background: rgba(217,177,92,0.2);
+      border-color: var(--gold);
+    }
+
+    .sidebar-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 4px 0;
+    }
+
+    /* ── Footer ── */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 32px;
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: #374151;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a class="nav-logo" href="index.html">
+      <img src="assets/ilaw-logo.png" alt="Invest Like a Warrior" onerror="this.style.display='none';this.nextSibling.style.display='block'"/>
+      <span style="display:none;color:var(--gold);font-weight:700;font-family:Georgia,serif;font-size:1rem;">INVEST LIKE A WARRIOR</span>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <span class="nav-dropdown-toggle">About</span>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="index.html#about">About ILAW</a>
+            <a href="index.html#about">About Jamie</a>
+            <a href="index.html#mission">Mission & Values</a>
+            <a href="team.html">Meet the Team</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="index.html#quiz">Take the Quiz</a></li>
+      <li><a href="https://ilaw-app.netlify.app" target="_blank">The App</a></li>
+      <li><a class="btn-nav" href="intake.html">Start Your Campaign</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="page-eyebrow">Coaching · Session Intake</div>
+    <h1 class="page-title">Start Your Campaign</h1>
+    <p class="page-sub">
+      No right or wrong answers. This form gives your coach the context needed to make your first session count. Fill it out once — we'll take it from there.
+    </p>
+  </section>
+
+  <!-- Main Layout -->
+  <div class="intake-layout">
+
+    <!-- Form -->
+    <div class="intake-form-wrap">
+
+      <div class="form-success" id="form-success">
+        <div class="success-icon">⚔️</div>
+        <div class="success-title">Your campaign has begun.</div>
+        <p class="success-text">Your intake form has been received. A warrior coach will review your answers and reach out to schedule your first session.</p>
+      </div>
+
+      <form name="ilaw-intake" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="intake-form">
+        <input type="hidden" name="form-name" value="ilaw-intake" />
+        <p style="display:none;"><input name="bot-field" /></p>
+
+        <div class="form-intro">
+          <div class="form-intro-title">Welcome, Warrior.</div>
+          <p class="form-intro-text">Before your first session, take a few minutes to answer these questions. There are no right or wrong answers — this is about giving your coach context so we can focus your sessions on what matters most to you. You will not be asked to share bank statements, tax returns, or any financial documents. Your scores and your words are all we need.</p>
+        </div>
+
+        <!-- Contact -->
+        <div class="form-question">
+          <div class="form-label">Your Info</div>
+          <div class="contact-fields">
+            <div class="field-group">
+              <label class="field-label" for="field-name">Full Name</label>
+              <input type="text" id="field-name" name="name" placeholder="Jamie Hoffman" required />
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="field-email">Email Address</label>
+              <input type="email" id="field-email" name="email" placeholder="you@email.com" required />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <!-- Q1 -->
+        <div class="form-question">
+          <div class="form-label">Question 1</div>
+          <div class="form-question-text">What is your biggest financial struggle right now?</div>
+          <p class="form-sub">Be as specific or as broad as you like. This is your starting point.</p>
+          <textarea name="q1_struggle" placeholder="Tell us where you are right now..."></textarea>
+        </div>
+
+        <!-- Q2 -->
+        <div class="form-question">
+          <div class="form-label">Question 2</div>
+          <div class="form-question-text">Are you currently dealing with a major financial event?</div>
+          <p class="form-sub">Select all that apply.</p>
+          <div class="checkbox-group">
+            <label class="checkbox-label"><input type="checkbox" name="q2_event" value="Bankruptcy or debt restructuring" /> Bankruptcy or debt restructuring</label>
+            <label class="checkbox-label"><input type="checkbox" name="q2_event" value="Medical bills or health crisis" /> Medical bills or health crisis</label>
+            <label class="checkbox-label"><input type="checkbox" name="q2_event" value="Job loss or income disruption" /> Job loss or income disruption</label>
+            <label class="checkbox-label"><input type="checkbox" name="q2_event" value="Divorce or major life transition" /> Divorce or major life transition</label>
+            <label class="checkbox-label"><input type="checkbox" name="q2_event" value="Legal or tax issue" /> Legal or tax issue</label>
+            <label class="checkbox-label"><input type="checkbox" name="q2_event" value="None of the above" /> None of the above</label>
+          </div>
+          <textarea name="q2_context" placeholder="Additional context (optional)..." style="margin-top:12px;min-height:60px;"></textarea>
+        </div>
+
+        <!-- Q3 -->
+        <div class="form-question">
+          <div class="form-label">Question 3</div>
+          <div class="form-question-text">What is your primary financial goal?</div>
+          <p class="form-sub">Choose the one that resonates most with where you want to go.</p>
+          <div class="radio-group">
+            <label class="radio-label"><input type="radio" name="q3_goal" value="Financial protection and stability" /> Financial protection and stability — I want to feel secure</label>
+            <label class="radio-label"><input type="radio" name="q3_goal" value="Financial freedom" /> Financial freedom — my income, my rules, no one owns my time</label>
+            <label class="radio-label"><input type="radio" name="q3_goal" value="Financial minimalism and peace" /> Financial minimalism and peace — enough is truly enough</label>
+            <label class="radio-label"><input type="radio" name="q3_goal" value="Serious wealth building" /> Serious wealth building — disciplined, focused, no shortcuts</label>
+            <label class="radio-label"><input type="radio" name="q3_goal" value="Understanding economic cycles" /> Understanding economic cycles — I want to move with the market</label>
+            <label class="radio-label"><input type="radio" name="q3_goal" value="Mastering market volatility" /> Mastering market volatility — high risk, high reward is my path</label>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="form-question">
+          <div class="form-label">Question 4</div>
+          <div class="form-question-text">What is your timeline for making meaningful progress?</div>
+          <p class="form-sub">Not a deadline — just a gut check on your expectations.</p>
+          <div class="radio-group">
+            <label class="radio-label"><input type="radio" name="q4_timeline" value="3 months" /> 3 months</label>
+            <label class="radio-label"><input type="radio" name="q4_timeline" value="6 months" /> 6 months</label>
+            <label class="radio-label"><input type="radio" name="q4_timeline" value="1 year" /> 1 year</label>
+            <label class="radio-label"><input type="radio" name="q4_timeline" value="2-3 years" /> 2–3 years</label>
+            <label class="radio-label"><input type="radio" name="q4_timeline" value="5+ years" /> Long game — 5+ years</label>
+            <label class="radio-label"><input type="radio" name="q4_timeline" value="Stop the bleeding first" /> I just want to stop the bleeding first</label>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="form-question">
+          <div class="form-label">Question 5</div>
+          <div class="form-question-text">Have you completed your ILAW ability score assessment?</div>
+          <p class="form-sub">Your six ability scores help your coach understand where you are before session one.</p>
+          <div class="radio-group">
+            <label class="radio-label"><input type="radio" name="q5_scores" value="Yes" /> Yes — I know my scores</label>
+            <label class="radio-label"><input type="radio" name="q5_scores" value="Started but not finished" /> I started but didn't finish</label>
+            <label class="radio-label"><input type="radio" name="q5_scores" value="No" /> No — I haven't done it yet</label>
+          </div>
+          <textarea name="q5_score_notes" placeholder="If yes, share your scores or any notes on them (optional)..." style="margin-top:12px;min-height:60px;"></textarea>
+        </div>
+
+        <!-- Q6 -->
+        <div class="form-question">
+          <div class="form-label">Question 6</div>
+          <div class="form-question-text">How did you find Invest Like a Warrior?</div>
+          <div class="radio-group">
+            <label class="radio-label"><input type="radio" name="q6_source" value="LinkedIn" /> LinkedIn</label>
+            <label class="radio-label"><input type="radio" name="q6_source" value="Substack / newsletter" /> Substack / newsletter</label>
+            <label class="radio-label"><input type="radio" name="q6_source" value="YouTube" /> YouTube</label>
+            <label class="radio-label"><input type="radio" name="q6_source" value="Instagram / TikTok" /> Instagram / TikTok</label>
+            <label class="radio-label"><input type="radio" name="q6_source" value="Friend or referral" /> Friend or referral</label>
+            <label class="radio-label"><input type="radio" name="q6_source" value="Other" /> Other</label>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="form-question">
+          <div class="form-label">Question 7</div>
+          <div class="form-question-text">What does financial success look like for you 12 months from now?</div>
+          <p class="form-sub">Paint the picture in your own words. Be specific if you can.</p>
+          <textarea name="q7_vision" placeholder="Describe what winning looks like..."></textarea>
+        </div>
+
+        <!-- Q8 -->
+        <div class="form-question">
+          <div class="form-label">Question 8</div>
+          <div class="form-question-text">What have you already tried?</div>
+          <p class="form-sub">Help us avoid retreading ground. What approaches, tools, or plans have you attempted?</p>
+          <textarea name="q8_tried" placeholder="Books, apps, advisors, strategies..."></textarea>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <button type="submit" class="btn-submit" id="submit-btn">Submit Your Intake Form ⚔️</button>
+        <p class="form-disclaimer">Your coach will review your answers before your first session. ILAW never stores your actual financial figures — only your warrior scores. This is not financial advice.</p>
+
+      </form>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="intake-sidebar">
+
+      <div class="sidebar-card">
+        <div class="sidebar-label">While You Wait</div>
+        <div class="sidebar-title">Track Your Ability Scores</div>
+        <p class="sidebar-text">The ILAW app lets you calculate your six financial ability scores, choose your warrior class, and start your campaign before your first session.</p>
+        <a class="btn-sidebar" href="https://ilaw-app.netlify.app" target="_blank">
+          <span>Access the App — Free Beta</span>
+          <span>⚔</span>
+        </a>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-label">The Rulebook</div>
+        <div class="sidebar-title">Download the Free Ebook</div>
+        <p class="sidebar-text">The Invest Like a Warrior ebook lays out the full system — warrior classes, ability scores, and how to start building your financial fortress.</p>
+        <a class="btn-sidebar" href="https://warriorinvestor.gumroad.com/l/ubczxr" target="_blank">
+          <span>Download the Ebook</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-label">Discover Your Class</div>
+        <div class="sidebar-title">Take the Warrior Quiz</div>
+        <p class="sidebar-text">Not sure which warrior class fits your financial personality? Ten questions. No right answers.</p>
+        <a class="btn-sidebar" href="index.html#quiz" target="_blank">
+          <span>Take the Quiz</span>
+          <span>→</span>
+        </a>
+      </div>
+
+    </aside>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <footer class="footer">
+    <span>© 2026 Invest Like a Warrior LLC · Michigan · All rights reserved.</span>
+    <span>Not a licensed financial advisor. All content is educational.</span>
+  </footer>
+
+  <script>
+    const form = document.getElementById('intake-form');
+    const success = document.getElementById('form-success');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+
+      const data = new FormData(form);
+
+      try {
+        await fetch('/', { method: 'POST', body: data });
+        form.style.display = 'none';
+        success.classList.add('is-visible');
+        if (typeof gtag === 'function') gtag('event', 'intake_form_submitted');
+      } catch(err) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Your Intake Form ⚔️';
+        alert('Something went wrong. Please try again.');
+      }
+    });
+  </script>
+
+</body>
+</html>
