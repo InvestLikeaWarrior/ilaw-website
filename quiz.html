@@ -1,0 +1,1206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <title>What Warrior Are You? · Invest Like a Warrior</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Ten questions. No right answers. Discover your financial warrior class." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="What Warrior Are You? · Invest Like a Warrior" />
+  <meta property="og:description" content="Ten questions. No right answers. Discover your financial warrior class." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://investlikeawarrior.com/quiz.html" />
+  <meta property="og:image" content="https://investlikeawarrior.com/assets/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://investlikeawarrior.com/assets/og-image.jpg" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BL0E8Z8863"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BL0E8Z8863');
+  </script>
+
+  <style>
+    :root {
+      --gold: #d9b15c;
+      --gold-soft: rgba(217,177,92,0.12);
+      --gold-border: rgba(217,177,92,0.3);
+      --bg: #050910;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-display: Georgia, "Times New Roman", serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #050910;
+      color: var(--text);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Nav ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5,9,16,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo img { height: 32px; width: auto; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-dropdown { position: relative; }
+
+    .nav-dropdown-toggle {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-dropdown-toggle::after { content: '▾'; font-size: 0.7rem; }
+
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      padding-top: 12px;
+      min-width: 180px;
+      flex-direction: column;
+    }
+
+    .nav-dropdown-menu-inner {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
+
+    .nav-dropdown-menu a {
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: block;
+    }
+
+    .nav-dropdown-menu a:hover {
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+    }
+
+    .btn-nav {
+      background: var(--gold);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 8px 20px;
+      border-radius: 999px;
+      letter-spacing: 0.03em;
+      transition: opacity 0.15s;
+    }
+
+    .btn-nav:hover { opacity: 0.88; }
+
+    /* ── Quiz shell ── */
+    .quiz-shell {
+      min-height: calc(100vh - 64px);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Progress bar ── */
+    .progress-bar-wrap {
+      width: 100%;
+      height: 3px;
+      background: var(--border);
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--gold);
+      transition: width 0.4s ease;
+      width: 0%;
+    }
+
+    .progress-label {
+      text-align: center;
+      padding: 16px;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── Screens ── */
+    .screen { display: none; flex: 1; }
+    .screen.active { display: flex; }
+
+    /* ── Intro screen ── */
+    #screen-intro {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 32px;
+      background: radial-gradient(circle at 50% 0%, #0f1a2e 0%, #020309 70%);
+    }
+
+    .intro-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .intro-title {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .intro-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 500px;
+      margin: 0 auto 40px;
+    }
+
+    .btn-start {
+      padding: 16px 48px;
+      border-radius: 12px;
+      border: none;
+      background: var(--gold);
+      color: #000;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-start:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(217,177,92,0.35);
+    }
+
+    /* ── Question screen ── */
+    #screen-question {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 32px 60px;
+      max-width: 680px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .question-text {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      font-weight: 700;
+      line-height: 1.25;
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--text);
+    }
+
+    .choices {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .choice-btn {
+      width: 100%;
+      padding: 16px 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
+      font-size: 0.92rem;
+      font-family: var(--font-sans);
+      cursor: pointer;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: border-color 0.15s, background 0.15s, transform 0.1s;
+    }
+
+    .choice-btn:hover {
+      border-color: var(--gold-border);
+      background: var(--gold-soft);
+      transform: translateX(4px);
+    }
+
+    .choice-btn.selected {
+      border-color: var(--gold);
+      background: var(--gold-soft);
+    }
+
+    .choice-letter {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--muted);
+      flex-shrink: 0;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .choice-btn:hover .choice-letter,
+    .choice-btn.selected .choice-letter {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ── Image choice grid ── */
+    .choices.is-visual {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .choice-card {
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.02);
+      cursor: pointer;
+      overflow: hidden;
+      transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .choice-card:hover {
+      border-color: var(--gold-border);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(217,177,92,0.15);
+    }
+
+    .choice-card.selected {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 1px var(--gold), 0 8px 24px rgba(217,177,92,0.2);
+    }
+
+    .choice-card-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    .choice-card-label {
+      padding: 10px 12px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.3;
+      background: rgba(0,0,0,0.5);
+      border-top: 1px solid var(--border);
+      font-family: var(--font-sans);
+    }
+
+    .choice-card.selected .choice-card-label {
+      color: var(--gold);
+    }
+
+    @media (max-width: 560px) {
+      .choices.is-visual { grid-template-columns: repeat(2, 1fr); }
+      .choice-card-img { height: 110px; }
+    }
+
+    /* ── Result screen ── */
+    #screen-result {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .result-hero {
+      width: 100%;
+      height: 60vh;
+      min-height: 380px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .result-portrait {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center top;
+    }
+
+    .result-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(5,9,16,1) 0%, rgba(5,9,16,0.5) 40%, rgba(5,9,16,0.1) 100%);
+    }
+
+    .result-hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 48px 48px;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .result-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .result-class {
+      font-family: var(--font-display);
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .result-tagline {
+      font-size: 1.1rem;
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .result-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+      text-align: center;
+    }
+
+    .result-desc {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .result-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .btn-result-primary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      border-radius: 12px;
+      border: none;
+      background: var(--gold);
+      color: #000;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      text-decoration: none;
+    }
+
+    .btn-result-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(217,177,92,0.3);
+    }
+
+    .btn-result-secondary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      text-decoration: none;
+    }
+
+    .btn-result-secondary:hover {
+      border-color: var(--gold-border);
+      background: var(--gold-soft);
+    }
+
+    .retake-link {
+      font-size: 0.8rem;
+      color: var(--muted);
+      cursor: pointer;
+      border-bottom: 1px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+      width: fit-content;
+      margin: 8px auto 0;
+      display: block;
+    }
+
+    .retake-link:hover {
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: #374151;
+      max-width: 1080px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    @media (max-width: 600px) {
+      .intro-title { font-size: 2.2rem; }
+      .question-text { font-size: 1.35rem; }
+      .result-class { font-size: 2.2rem; }
+      .result-hero-content { padding: 0 24px 36px; }
+      .result-body { padding: 36px 24px 60px; }
+    }
+
+    /* ── Hamburger ── */
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 4px 8px;
+      line-height: 1;
+    }
+
+    /* ── Mobile nav + footer ── */
+    @media (max-width: 768px) {
+      .nav { padding: 0 20px; }
+      .nav-hamburger { display: block; }
+      .nav-logo-sub { display: none; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: rgba(5,9,16,0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 0 24px;
+        z-index: 999;
+        list-style: none;
+      }
+      .nav-links.nav-open { display: flex; }
+      .nav-links > li > a,
+      .nav-links > li > .nav-dropdown-toggle {
+        display: block;
+        padding: 12px 24px;
+        font-size: 0.95rem;
+        color: var(--text);
+      }
+      .nav-dropdown-menu {
+        position: static;
+        display: flex !important;
+        padding-top: 0;
+        min-width: unset;
+      }
+      .nav-dropdown-menu-inner {
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        padding: 0 0 4px 40px;
+        gap: 0;
+      }
+      .nav-dropdown-menu a {
+        padding: 8px 0;
+        font-size: 0.88rem;
+        color: var(--muted);
+      }
+      .nav-dropdown-toggle::after { display: none; }
+      .btn-nav {
+        margin: 8px 20px 4px;
+        display: block;
+        text-align: center;
+        padding: 12px 20px;
+      }
+      .footer {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        padding: 32px 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #screen-intro { padding: 48px 20px; }
+      .intro-title { font-size: 2.2rem; }
+      .intro-sub { font-size: 0.9rem; }
+      #screen-question { padding: 32px 20px 48px; }
+      .question-text { font-size: 1.35rem; margin-bottom: 28px; }
+      .choice-btn { padding: 14px 16px; font-size: 0.88rem; }
+      .result-actions { flex-direction: column; gap: 12px; align-items: stretch; }
+      .btn-result-primary, .btn-result-secondary { justify-content: center; }
+      .result-body { padding: 32px 20px 48px; }
+    }
+    @media (max-width: 480px) {
+      .intro-title { font-size: 1.85rem; }
+    }
+
+    /* ── Email gate screen ── */
+    #screen-email-gate {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 64px 32px 72px;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .gate-glyph {
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+      opacity: 0.85;
+    }
+
+    .gate-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .gate-title {
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .gate-sub {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .gate-offers {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 32px;
+      text-align: left;
+      width: 100%;
+    }
+
+    .gate-offer-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .gate-offer-item::before {
+      content: '⚔';
+      font-size: 0.7rem;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .gate-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .gate-input {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      padding: 14px 18px;
+      outline: none;
+      transition: border-color 0.15s;
+      text-align: center;
+    }
+
+    .gate-input:focus { border-color: var(--gold-border); }
+    .gate-input::placeholder { color: #4b5563; }
+
+    .gate-submit {
+      width: 100%;
+      padding: 15px 24px;
+      border-radius: 12px;
+      border: none;
+      background: var(--gold);
+      color: #000;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+      letter-spacing: 0.02em;
+      font-family: var(--font-sans);
+    }
+
+    .gate-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(217,177,92,0.3);
+    }
+
+    .gate-submit:disabled { opacity: 0.5; cursor: default; transform: none; box-shadow: none; }
+
+    .gate-skip {
+      background: none;
+      border: none;
+      color: #4b5563;
+      font-size: 0.8rem;
+      cursor: pointer;
+      margin-top: 4px;
+      font-family: var(--font-sans);
+      transition: color 0.15s;
+    }
+
+    .gate-skip:hover { color: var(--muted); }
+
+    .gate-success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .gate-success.is-visible { display: flex; }
+
+    .gate-success-icon { font-size: 2rem; }
+
+    .gate-success-text {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 480px) {
+      .intro-title { font-size: 1.85rem; }
+      #screen-email-gate { padding: 48px 20px 56px; }
+      .gate-title { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav">
+    <a class="nav-logo" href="index.html">
+      <img src="assets/nav-dragon.png" alt="" />
+      <div class="nav-logo-text">
+        <span class="nav-logo-title">Invest Like a Warrior</span>
+        <span class="nav-logo-sub">Financial Education</span>
+      </div>
+    </a>
+    <button class="nav-hamburger" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <span class="nav-dropdown-toggle">About</span>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="index.html#about">Meet Your Coach</a>
+            <a href="index.html#mission">Our Mission and Values</a>
+            <a href="team.html">Meet the Team</a>
+            <a href="contact.html">Work with Us</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="coaching.html">How Coaching Works</a></li>
+      <li><a href="quiz.html">Take the Quiz</a></li>
+      <li><a href="https://ilaw-app.netlify.app" target="_blank">The App</a></li>
+      <li><a class="btn-nav" href="intake.html">Start Your Campaign</a></li>
+    </ul>
+  </nav>
+
+  <div class="quiz-shell">
+
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progress-fill"></div>
+    </div>
+    <div class="progress-label" id="progress-label" style="display:none;"></div>
+
+    <!-- Intro -->
+    <div class="screen active" id="screen-intro">
+      <div class="intro-eyebrow">Discover Your Class</div>
+      <h1 class="intro-title">What Warrior Are You?</h1>
+      <p class="intro-sub">Ten questions. No right answers. Walk away knowing which of the six warrior classes matches your financial personality and what that means for how you build wealth.</p>
+      <button class="btn-start" onclick="startQuiz()">Begin the Quiz ⚔</button>
+    </div>
+
+    <!-- Question -->
+    <div class="screen" id="screen-question">
+      <div class="question-text" id="question-text"></div>
+      <div class="choices" id="choices"></div>
+    </div>
+
+    <!-- Email Gate -->
+    <div class="screen" id="screen-email-gate">
+      <div class="gate-glyph">⚔️</div>
+      <div class="gate-eyebrow">Your warrior class has been determined</div>
+      <h2 class="gate-title">Want the full breakdown?</h2>
+      <p class="gate-sub">Drop your email and we'll send your warrior class guide, an ability score primer, and access to the ILAW free ebook — all matched to your result.</p>
+
+      <div class="gate-offers">
+        <div class="gate-offer-item">Your warrior class guide and what it means for your finances</div>
+        <div class="gate-offer-item">A breakdown of all six financial ability scores</div>
+        <div class="gate-offer-item">Free access to the ILAW ebook</div>
+      </div>
+
+      <!-- Netlify form — captures email + warrior class -->
+      <!-- To connect a platform: replace the fetch() below with your Mailchimp/Kit API call -->
+      <form class="gate-form" id="gate-form" name="ilaw-quiz-optin" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="ilaw-quiz-optin" />
+        <input type="hidden" name="warrior_class" id="gate-warrior-class" value="" />
+        <p style="display:none;"><input name="bot-field" /></p>
+
+        <div class="gate-success" id="gate-success">
+          <div class="gate-success-icon">✓</div>
+          <p class="gate-success-text">You're in. Revealing your warrior class now...</p>
+        </div>
+
+        <input class="gate-input" type="email" name="email" placeholder="your@email.com" required id="gate-email" />
+        <button class="gate-submit" type="submit" id="gate-submit-btn">Send Me the Breakdown ⚔</button>
+      </form>
+
+      <button class="gate-skip" onclick="skipGate()">Skip — just show my result →</button>
+    </div>
+
+    <!-- Result -->
+    <div class="screen" id="screen-result">
+      <div class="result-hero">
+        <div class="result-portrait" id="result-portrait"></div>
+        <div class="result-overlay"></div>
+        <div class="result-hero-content">
+          <div class="result-eyebrow">Your Warrior Class</div>
+          <div class="result-class" id="result-class"></div>
+          <div class="result-tagline" id="result-tagline"></div>
+        </div>
+      </div>
+      <div class="result-body">
+        <p class="result-desc" id="result-desc"></p>
+        <div class="result-actions">
+          <a class="btn-result-primary" href="https://ilaw-app.netlify.app" target="_blank">
+            <span>Track Your Ability Scores</span>
+            <span>⚔</span>
+          </a>
+          <a class="btn-result-secondary" href="intake.html">
+            <span>Start Your Campaign</span>
+            <span>→</span>
+          </a>
+          <span class="retake-link" onclick="resetQuiz()">Retake the quiz</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <span>© 2026 Invest Like a Warrior LLC · Michigan · All rights reserved.</span>
+    <span>Not a licensed financial advisor. All content is educational.</span>
+  </footer>
+
+  <script>
+    const CLASSES = ['knight','samurai','pirate','viking','monk','ninja'];
+
+    const RESULTS = {
+      knight: {
+        name: 'The Knight',
+        tagline: 'Financial Fortitude',
+        portrait: 'assets/portrait-knight.png',
+        desc: 'As a Knight, you build your financial life on a foundation of stability and protection. You prioritize steady income, diversified investments, and a strong defensive strategy. You believe in building wealth methodically, brick by brick, and protecting what you have earned for the people who depend on you.'
+      },
+      samurai: {
+        name: 'The Samurai',
+        tagline: 'Wealth Generation and Power',
+        portrait: 'assets/portrait-samurai.png',
+        desc: 'As a Samurai, you aim to serve others by acquiring and managing real estate and cashflow assets. You strategically use debt to expand your asset portfolio, growing your clan\'s power and influence in the process. Discipline and long-term thinking are your greatest weapons.'
+      },
+      pirate: {
+        name: 'The Pirate',
+        tagline: 'Freedom and Independence',
+        portrait: 'assets/portrait-pirate.png',
+        desc: 'As a Pirate, you live and invest on your own terms. You build multiple income streams, seize opportunities others overlook, and refuse to be tied to a single employer or strategy. Your financial freedom comes from relentless hustle and the willingness to sail into uncharted waters.'
+      },
+      viking: {
+        name: 'The Viking',
+        tagline: 'Power and Empire',
+        portrait: 'assets/portrait-viking.png',
+        desc: 'As a Viking, you think in dynasties, not decades. You build bold, accumulate hard assets, and measure success by what you leave behind. You are not afraid to take on risk to build something that outlasts you. A financial empire your clan will inherit and your enemies will respect.'
+      },
+      monk: {
+        name: 'The Monk',
+        tagline: 'Minimalism and Peace',
+        portrait: 'assets/portrait-monk.png',
+        desc: 'As a Monk, you understand that enough is truly enough. You build financial peace through frugality, intentional living, and the quiet accumulation of knowledge. You do not need the most. You need the right things. And you protect that peace with the same discipline a warrior protects a fortress.'
+      },
+      ninja: {
+        name: 'The Ninja',
+        tagline: 'Volatility and Chaos',
+        portrait: 'assets/portrait-ninja.png',
+        desc: 'As a Ninja, you thrive where others hesitate. You move fast, read markets others can\'t, and you are not afraid of volatility. You have built your edge on it. Crypto, high-risk assets, and unconventional strategies are your weapons. You strike precisely and disappear before the dust settles.'
+      }
+    };
+
+    // Each answer maps to a class index: 0=knight,1=samurai,2=pirate,3=viking,4=monk,5=ninja
+    const QUESTIONS = [
+      {
+        text: 'How do you best prepare for a job loss?',
+        choices: [
+          { text: 'Maintain a well connected network for job opportunities', class: 'knight' },
+          { text: 'Live frugally, save, and use emergency funds during job transitions', class: 'monk' },
+          { text: 'Pursue side-hustles on weekends for backup income', class: 'pirate' },
+          { text: 'Cut spending and temporarily live with someone for support', class: 'viking' },
+          { text: 'Plan backup job options while employed for a focused job search', class: 'samurai' },
+          { text: 'Work in high-demand fields for faster job replacement', class: 'ninja' }
+        ]
+      },
+      {
+        text: 'I want to prepare for retirement by',
+        choices: [
+          { text: 'Seizing investment opportunities for lifelong benefits', class: 'ninja' },
+          { text: 'Establishing a business for post-work income', class: 'pirate' },
+          { text: 'Investing in real estate for lasting cash flow', class: 'samurai' },
+          { text: 'Downsizing and pursuing passion-driven work indefinitely', class: 'monk' },
+          { text: 'Investing in my children\'s future for personal care', class: 'knight' },
+          { text: 'Creating an opportunity network for continuous earnings', class: 'viking' }
+        ]
+      },
+      {
+        text: 'The asset that excites me most is:',
+        choices: [
+          { text: 'Cryptocurrency', class: 'ninja' },
+          { text: 'Real Estate', class: 'samurai' },
+          { text: 'Stocks, mutual funds, bonds, retirement accounts', class: 'knight' },
+          { text: 'Owning a Business', class: 'pirate' },
+          { text: 'Green Energy', class: 'monk' },
+          { text: 'Precious Metals and Rare Earths', class: 'viking' }
+        ]
+      },
+      {
+        text: 'My ideal home is:',
+        choices: [
+          { text: 'Downtown condo in a lively area', class: 'ninja' },
+          { text: 'Grand mansion', class: 'viking' },
+          { text: 'Mid-sized house', class: 'knight' },
+          { text: 'Off-grid sustainable home', class: 'monk' },
+          { text: 'Boat living in an upscale harbor', class: 'pirate' },
+          { text: 'Home-free with global travel ability', class: 'samurai' }
+        ]
+      },
+      {
+        text: 'I view money as:',
+        choices: [
+          { text: 'A money-making tool', class: 'ninja' },
+          { text: 'A scarce resource to manage carefully', class: 'monk' },
+          { text: 'Available for the taking', class: 'pirate' },
+          { text: 'Unlimited, if you know where to look', class: 'viking' },
+          { text: 'The root of many problems', class: 'knight' },
+          { text: 'The reward for hard work', class: 'samurai' }
+        ]
+      },
+      {
+        text: 'The best allies in warfare are:',
+        choices: [
+          { text: 'Family and Friends', class: 'knight' },
+          { text: 'Formal military', class: 'viking' },
+          { text: 'High-paid mercenaries', class: 'ninja' },
+          { text: 'The enemy', class: 'pirate' },
+          { text: 'Politicians', class: 'samurai' },
+          { text: 'Self-reliance. I need no allies', class: 'monk' }
+        ]
+      },
+      {
+        text: 'I prefer working',
+        choices: [
+          { text: 'In a team', class: 'knight' },
+          { text: 'Solo, with family', class: 'viking' },
+          { text: 'For myself', class: 'pirate' },
+          { text: 'With vetted colleagues', class: 'samurai' },
+          { text: 'With a group from the same community', class: 'ninja' },
+          { text: 'Alongside random strangers. I trust the work, not the person', class: 'monk' }
+        ]
+      },
+      {
+        text: 'When I die, I want to:',
+        choices: [
+          { text: 'Provide my family the resources to thrive', class: 'knight' },
+          { text: 'Leave a lasting Family Empire', class: 'viking' },
+          { text: 'Share my knowledge as widely as possible', class: 'monk' },
+          { text: 'Create an enduring Brand', class: 'pirate' },
+          { text: 'Have fought fiercely and left my mark', class: 'samurai' },
+          { text: 'Have achieved anonymously. Impact felt, name unknown', class: 'ninja' }
+        ]
+      },
+      {
+        text: 'Your preferred weapon is:',
+        choices: [
+          { text: 'Mace: One solid hit', class: 'knight' },
+          { text: 'Katana: Out-finesse your foes', class: 'samurai' },
+          { text: 'Ninja Sword: Precise kills', class: 'ninja' },
+          { text: 'Cutlass: Close combat', class: 'pirate' },
+          { text: "Monk's Staff: Subdue, spare lives", class: 'monk' },
+          { text: 'Viking Axe: Unleash devastation', class: 'viking' }
+        ]
+      },
+      {
+        text: 'Which of the following is most important to you?',
+        choices: [
+          { text: 'Stability', class: 'knight' },
+          { text: 'Power', class: 'viking' },
+          { text: 'Knowledge', class: 'samurai' },
+          { text: 'Freedom', class: 'pirate' },
+          { text: 'Valor', class: 'ninja' },
+          { text: 'Peace', class: 'monk' }
+        ]
+      }
+    ];
+
+    let current = 0;
+    let scores = { knight:0, samurai:0, pirate:0, viking:0, monk:0, ninja:0 };
+    let pendingWinner = null;
+
+    function startQuiz() {
+      current = 0;
+      scores = { knight:0, samurai:0, pirate:0, viking:0, monk:0, ninja:0 };
+      showQuestion();
+      document.getElementById('progress-label').style.display = 'block';
+      if (typeof gtag === 'function') {
+        gtag('event', 'quiz_started');
+      }
+    }
+
+    function showQuestion() {
+      setScreen('question');
+      const q = QUESTIONS[current];
+      document.getElementById('question-text').textContent = q.text;
+
+      const letters = ['A','B','C','D','E','F'];
+      const choicesEl = document.getElementById('choices');
+      choicesEl.innerHTML = '';
+
+      if (q.visual) {
+        choicesEl.classList.add('is-visual');
+        q.choices.forEach((choice) => {
+          const card = document.createElement('button');
+          card.className = 'choice-card';
+          card.innerHTML = `<img class="choice-card-img" src="${choice.portrait}" alt="${choice.text}" /><div class="choice-card-label">${choice.text}</div>`;
+          card.onclick = () => selectAnswer(choice.class, card, true);
+          choicesEl.appendChild(card);
+        });
+      } else {
+        choicesEl.classList.remove('is-visual');
+        q.choices.forEach((choice, i) => {
+          const btn = document.createElement('button');
+          btn.className = 'choice-btn';
+          btn.innerHTML = `<span class="choice-letter">${letters[i]}</span><span>${choice.text}</span>`;
+          btn.onclick = () => selectAnswer(choice.class, btn, false);
+          choicesEl.appendChild(btn);
+        });
+      }
+
+      updateProgress();
+    }
+
+    function selectAnswer(cls, el, isVisual) {
+      // Highlight selected
+      const selector = isVisual ? '.choice-card' : '.choice-btn';
+      document.querySelectorAll(selector).forEach(b => b.classList.remove('selected'));
+      el.classList.add('selected');
+
+      // Score and advance after brief delay
+      setTimeout(() => {
+        scores[cls]++;
+        current++;
+        if (current < QUESTIONS.length) {
+          showQuestion();
+        } else {
+          showEmailGate();
+        }
+      }, 280);
+    }
+
+    function showEmailGate() {
+      pendingWinner = Object.keys(scores).reduce((a, b) => scores[a] >= scores[b] ? a : b);
+      document.getElementById('gate-warrior-class').value = pendingWinner;
+      document.getElementById('progress-label').style.display = 'none';
+      document.getElementById('progress-fill').style.width = '100%';
+      setScreen('email-gate');
+    }
+
+    function skipGate() {
+      if (typeof gtag === 'function') gtag('event', 'quiz_optin_skipped', { warrior_class: pendingWinner });
+      showResult();
+    }
+
+    function showResult() {
+      const r = RESULTS[pendingWinner];
+
+      document.getElementById('result-portrait').style.backgroundImage = `url('${r.portrait}')`;
+      document.getElementById('result-class').textContent = r.name;
+      document.getElementById('result-tagline').textContent = r.tagline;
+      document.getElementById('result-desc').textContent = r.desc;
+
+      setScreen('result');
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'quiz_completed', { warrior_class: pendingWinner });
+      }
+    }
+
+    // Gate form submission
+    document.getElementById('gate-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('gate-submit-btn');
+      const input = document.getElementById('gate-email');
+      const successEl = document.getElementById('gate-success');
+      const email = input.value.trim();
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      try {
+        await Promise.allSettled([
+          // Netlify backup
+          fetch('/', { method: 'POST', body: new FormData(this) }),
+          // Kit — subscribes email + tags with warrior class
+          fetch('https://api.convertkit.com/v3/forms/9378952/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              api_key: 'kit_a124f5cf5e347197d603bba16c512aa2',
+              email: email,
+              tags: [19215169],
+              fields: { warrior_class: pendingWinner }
+            })
+          })
+        ]);
+        if (typeof gtag === 'function') gtag('event', 'quiz_optin_submitted', { warrior_class: pendingWinner });
+        input.style.display = 'none';
+        btn.style.display = 'none';
+        successEl.classList.add('is-visible');
+        setTimeout(showResult, 1600);
+      } catch(err) {
+        btn.disabled = false;
+        btn.textContent = 'Send Me the Breakdown ⚔';
+      }
+    });
+
+    function resetQuiz() {
+      current = 0;
+      scores = { knight:0, samurai:0, pirate:0, viking:0, monk:0, ninja:0 };
+      pendingWinner = null;
+      // Reset gate form state
+      document.getElementById('gate-email').style.display = '';
+      document.getElementById('gate-submit-btn').style.display = '';
+      document.getElementById('gate-submit-btn').disabled = false;
+      document.getElementById('gate-submit-btn').textContent = 'Send Me the Breakdown ⚔';
+      document.getElementById('gate-success').classList.remove('is-visible');
+      document.getElementById('gate-form').reset();
+      document.getElementById('progress-fill').style.width = '0%';
+      document.getElementById('progress-label').style.display = 'none';
+      setScreen('intro');
+    }
+
+    function setScreen(name) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById('screen-' + name).classList.add('active');
+    }
+
+    function updateProgress() {
+      const pct = (current / QUESTIONS.length) * 100;
+      document.getElementById('progress-fill').style.width = pct + '%';
+      document.getElementById('progress-label').textContent =
+        `Question ${current + 1} of ${QUESTIONS.length}`;
+    }
+  </script>
+
+  <script>
+    (function() {
+      var btn = document.querySelector('.nav-hamburger');
+      var links = document.querySelector('.nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        links.classList.toggle('nav-open');
+        btn.textContent = links.classList.contains('nav-open') ? '✕' : '☰';
+      });
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('nav')) {
+          links.classList.remove('nav-open');
+          btn.textContent = '☰';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

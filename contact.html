@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <title>Work with Us · Invest Like a Warrior</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="We're building ILAW from inside the nerd community. If you're an artist, gamer, writer, or collaborator, we want to hear from you." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Work with Us · Invest Like a Warrior" />
+  <meta property="og:description" content="We're building ILAW from inside the nerd community. If you're an artist, gamer, writer, or collaborator. We want to hear from you." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://investlikeawarrior.com/contact.html" />
+  <meta property="og:image" content="https://investlikeawarrior.com/assets/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://investlikeawarrior.com/assets/og-image.jpg" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BL0E8Z8863"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BL0E8Z8863');
+  </script>
+
+  <style>
+    :root {
+      --gold: #d9b15c;
+      --gold-soft: rgba(217,177,92,0.12);
+      --gold-border: rgba(217,177,92,0.3);
+      --bg: #050910;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-display: Georgia, "Times New Roman", serif;
+      --max: 1080px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #050910;
+      color: var(--text);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Nav ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5,9,16,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo img { height: 32px; width: auto; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-dropdown { position: relative; }
+
+    .nav-dropdown-toggle {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-dropdown-toggle::after {
+      content: '▾';
+      font-size: 0.7rem;
+    }
+
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      padding-top: 12px;
+      min-width: 180px;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-dropdown-menu-inner {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
+
+    .nav-dropdown-menu a {
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: block;
+    }
+
+    .nav-dropdown-menu a:hover {
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+    }
+
+    .btn-nav {
+      background: var(--gold);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 8px 20px;
+      border-radius: 999px;
+      letter-spacing: 0.03em;
+      transition: opacity 0.15s;
+    }
+
+    .btn-nav:hover { opacity: 0.88; }
+
+    /* ── Page header ── */
+    .page-header {
+      background: radial-gradient(circle at 50% 0%, #0f1a2e 0%, #020309 70%);
+      border-bottom: 1px solid var(--border);
+      padding: 80px 32px 72px;
+      text-align: center;
+    }
+
+    .page-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .page-title {
+      font-size: 3rem;
+      font-weight: 700;
+      font-family: var(--font-display);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .page-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 580px;
+      margin: 0 auto 32px;
+    }
+
+    /* ── Who we're looking for pills ── */
+    .looking-for {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    .looking-pill {
+      padding: 6px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Layout ── */
+    .contact-layout {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 64px 32px 96px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 48px;
+      align-items: start;
+    }
+
+    @media (max-width: 780px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .page-title { font-size: 2.2rem; }
+    }
+
+    /* ── Form ── */
+    .contact-form-wrap {
+      background: radial-gradient(circle at top left, #0f172a 0%, #070b14 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+    }
+
+    .form-intro {
+      margin-bottom: 36px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .form-intro-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .form-intro-text {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .form-question { margin-bottom: 28px; }
+
+    .form-label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    textarea, input[type="text"], input[type="email"], input[type="url"] {
+      width: 100%;
+      background: #080c18;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      padding: 12px 16px;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    textarea:focus, input:focus { border-color: var(--gold-border); }
+
+    textarea { min-height: 90px; }
+
+    .contact-fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 520px) {
+      .contact-fields { grid-template-columns: 1fr; }
+      .contact-form-wrap { padding: 24px; }
+    }
+
+    .field-group { display: flex; flex-direction: column; gap: 6px; }
+
+    .field-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      cursor: pointer;
+      line-height: 1.4;
+    }
+
+    .checkbox-label input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+
+    .checkbox-label:hover { color: var(--text); }
+
+    .form-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 28px 0;
+    }
+
+    .btn-submit {
+      width: 100%;
+      margin-top: 24px;
+      padding: 16px 24px;
+      border-radius: 12px;
+      border: none;
+      background: var(--gold);
+      color: #000;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(217,177,92,0.3);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.5;
+      cursor: default;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .form-disclaimer {
+      font-size: 0.72rem;
+      color: #4b5563;
+      line-height: 1.5;
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    /* ── Success state ── */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+    }
+
+    .form-success.is-visible { display: block; }
+
+    .success-icon { font-size: 2.4rem; margin-bottom: 20px; }
+
+    .success-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .success-text {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
+    /* ── Sidebar ── */
+    .contact-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: sticky;
+      top: 80px;
+    }
+
+    .sidebar-card {
+      background: radial-gradient(circle at top left, #0f172a 0%, #070b14 100%);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+    }
+
+    .sidebar-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .sidebar-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .sidebar-text {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .btn-sidebar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 11px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--gold-border);
+      background: var(--gold-soft);
+      color: var(--gold);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      text-decoration: none;
+    }
+
+    .btn-sidebar:hover {
+      background: rgba(217,177,92,0.2);
+      border-color: var(--gold);
+    }
+
+    /* ── Footer ── */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 32px;
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: #374151;
+    }
+
+    /* ── Hamburger ── */
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 4px 8px;
+      line-height: 1;
+    }
+
+    /* ── Mobile nav + footer ── */
+    @media (max-width: 768px) {
+      .nav { padding: 0 20px; }
+      .nav-hamburger { display: block; }
+      .nav-logo-sub { display: none; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: rgba(5,9,16,0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 0 24px;
+        z-index: 999;
+        list-style: none;
+      }
+      .nav-links.nav-open { display: flex; }
+      .nav-links > li > a,
+      .nav-links > li > .nav-dropdown-toggle {
+        display: block;
+        padding: 12px 24px;
+        font-size: 0.95rem;
+        color: var(--text);
+      }
+      .nav-dropdown-menu {
+        position: static;
+        display: flex !important;
+        padding-top: 0;
+        min-width: unset;
+      }
+      .nav-dropdown-menu-inner {
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        padding: 0 0 4px 40px;
+        gap: 0;
+      }
+      .nav-dropdown-menu a {
+        padding: 8px 0;
+        font-size: 0.88rem;
+        color: var(--muted);
+      }
+      .nav-dropdown-toggle::after { display: none; }
+      .btn-nav {
+        margin: 8px 20px 4px;
+        display: block;
+        text-align: center;
+        padding: 12px 20px;
+      }
+      .footer {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        padding: 32px 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page-header { padding: 60px 20px 40px; }
+      .page-title { font-size: 2rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a class="nav-logo" href="index.html">
+      <img src="assets/nav-dragon.png" alt="" />
+      <div class="nav-logo-text">
+        <span class="nav-logo-title">Invest Like a Warrior</span>
+        <span class="nav-logo-sub">Financial Education</span>
+      </div>
+    </a>
+    <button class="nav-hamburger" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <span class="nav-dropdown-toggle">About</span>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="index.html#about">Meet Your Coach</a>
+            <a href="index.html#mission">Our Mission and Values</a>
+            <a href="team.html">Meet the Team</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="coaching.html">How Coaching Works</a></li>
+      <li><a href="quiz.html">Take the Quiz</a></li>
+      <li><a href="https://ilaw-app.netlify.app" target="_blank">The App</a></li>
+      <li><a class="btn-nav" href="intake.html">Start Your Campaign</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="page-eyebrow">The Warband is Growing</div>
+    <h1 class="page-title">Work with Us</h1>
+    <p class="page-sub">
+      ILAW is built from inside the nerd community and that's exactly where we intend to hire from. We don't have paid positions open right now, but we're always collecting great people. If you want to be in the room when this gets big, introduce yourself.
+    </p>
+    <div class="looking-for">
+      <span class="looking-pill">Illustrators & Artists</span>
+      <span class="looking-pill">Tabletop Gamers</span>
+      <span class="looking-pill">Writers & Content Creators</span>
+      <span class="looking-pill">Brand Partners</span>
+      <span class="looking-pill">Game Designers</span>
+      <span class="looking-pill">Developers</span>
+      <span class="looking-pill">Community Builders</span>
+    </div>
+  </section>
+
+  <!-- Main Layout -->
+  <div class="contact-layout">
+
+    <!-- Form -->
+    <div class="contact-form-wrap">
+
+      <div class="form-success" id="form-success">
+        <div class="success-icon">⚔️</div>
+        <div class="success-title">You're on our radar.</div>
+        <p class="success-text">We've received your introduction. We don't have paid positions open right now, but when we do, we're building from this list first. Welcome to the warband.</p>
+      </div>
+
+      <form name="ilaw-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contact-form">
+        <input type="hidden" name="form-name" value="ilaw-contact" />
+        <p style="display:none;"><input name="bot-field" /></p>
+
+        <div class="form-intro">
+          <div class="form-intro-title">Introduce Yourself.</div>
+          <p class="form-intro-text">This is a standing invitation for people who want to build something from inside the community. Tell us who you are and what you do. We'll keep you in mind when the time comes.</p>
+        </div>
+
+        <!-- Contact -->
+        <div class="form-question">
+          <div class="contact-fields">
+            <div class="field-group">
+              <label class="field-label" for="c-name">Your Name</label>
+              <input type="text" id="c-name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="c-email">Email</label>
+              <input type="email" id="c-email" name="email" placeholder="you@email.com" required />
+            </div>
+          </div>
+        </div>
+
+        <!-- What they do -->
+        <div class="form-question">
+          <label class="form-label">What do you do?</label>
+          <div class="checkbox-group">
+            <label class="checkbox-label"><input type="checkbox" name="role" value="Illustrator / Artist" /> Illustrator or Artist</label>
+            <label class="checkbox-label"><input type="checkbox" name="role" value="Writer / Content Creator" /> Writer or Content Creator</label>
+            <label class="checkbox-label"><input type="checkbox" name="role" value="Game Designer" /> Game Designer</label>
+            <label class="checkbox-label"><input type="checkbox" name="role" value="Developer" /> Developer</label>
+            <label class="checkbox-label"><input type="checkbox" name="role" value="Brand / Marketing" /> Brand or Marketing</label>
+            <label class="checkbox-label"><input type="checkbox" name="role" value="Community Builder" /> Community Builder</label>
+            <label class="checkbox-label"><input type="checkbox" name="role" value="Business Partner" /> Business Partner or Collaborator</label>
+            <label class="checkbox-label"><input type="checkbox" name="role" value="Other" /> Something else</label>
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <!-- Bio / description -->
+        <div class="form-question">
+          <label class="form-label" for="c-bio">Tell us about yourself</label>
+          <textarea id="c-bio" name="bio" placeholder="What do you make, build, or run? What community are you part of? What games do you play?"></textarea>
+        </div>
+
+        <!-- Portfolio / link -->
+        <div class="form-question">
+          <label class="form-label" for="c-link">Portfolio or link (optional)</label>
+          <input type="url" id="c-link" name="link" placeholder="https://" />
+        </div>
+
+        <!-- Why ILAW -->
+        <div class="form-question">
+          <label class="form-label" for="c-why">Why ILAW?</label>
+          <textarea id="c-why" name="why" placeholder="What drew you here? What would you want to build with us?"></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submit-btn">Send Your Introduction ⚔️</button>
+        <p class="form-disclaimer">No paid positions are currently open. Submitting this form adds you to our collaborator list for future opportunities. We don't spam.</p>
+
+      </form>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="contact-sidebar">
+
+      <div class="sidebar-card" style="border-color: var(--gold-border);">
+        <div class="sidebar-label">The Honest Truth</div>
+        <div class="sidebar-title">No Budget. Big Vision.</div>
+        <p class="sidebar-text">ILAW is early stage. We can't pay anyone right now. But we're building something real, and when the time comes, we're hiring from inside the community first. This form is how you get in front of that.</p>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-label">Meet the Warband</div>
+        <div class="sidebar-title">See Who's Already Here</div>
+        <p class="sidebar-text">The team page shows who's building ILAW right now and what they bring to the warband.</p>
+        <a class="btn-sidebar" href="team.html">
+          <span>Meet the Team</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-label">Not Here to Collaborate?</div>
+        <div class="sidebar-title">Start Your Campaign</div>
+        <p class="sidebar-text">If you're here for financial coaching, the intake form is the right place to start.</p>
+        <a class="btn-sidebar" href="intake.html">
+          <span>Start Your Campaign</span>
+          <span>⚔</span>
+        </a>
+      </div>
+
+    </aside>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <footer class="footer">
+    <span>© 2026 Invest Like a Warrior LLC · Michigan · All rights reserved.</span>
+    <span>Not a licensed financial advisor. All content is educational.</span>
+  </footer>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const success = document.getElementById('form-success');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      const data = new FormData(form);
+
+      try {
+        await fetch('/', { method: 'POST', body: data });
+        form.style.display = 'none';
+        success.classList.add('is-visible');
+        if (typeof gtag === 'function') gtag('event', 'contact_form_submitted');
+      } catch(err) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Your Introduction ⚔️';
+        alert('Something went wrong. Please try again.');
+      }
+    });
+  </script>
+
+  <script>
+    (function() {
+      var btn = document.querySelector('.nav-hamburger');
+      var links = document.querySelector('.nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        links.classList.toggle('nav-open');
+        btn.textContent = links.classList.contains('nav-open') ? '✕' : '☰';
+      });
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('nav')) {
+          links.classList.remove('nav-open');
+          btn.textContent = '☰';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

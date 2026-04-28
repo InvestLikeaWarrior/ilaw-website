@@ -1,0 +1,1113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <title>How Coaching Works · Invest Like a Warrior</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="The ILAW 4-session coaching arc. No bank statements. No judgment. Just six honest numbers and a plan built around your warrior class." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="How Coaching Works · Invest Like a Warrior" />
+  <meta property="og:description" content="The ILAW 4-session coaching arc. No bank statements. No judgment. Just six honest numbers and a plan built around your warrior class." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://investlikeawarrior.com/coaching.html" />
+  <meta property="og:image" content="https://investlikeawarrior.com/assets/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://investlikeawarrior.com/assets/og-image.jpg" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BL0E8Z8863"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BL0E8Z8863');
+  </script>
+
+  <style>
+    :root {
+      --gold: #d9b15c;
+      --gold-soft: rgba(217,177,92,0.12);
+      --gold-border: rgba(217,177,92,0.3);
+      --bg: #050910;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-display: Georgia, "Times New Roman", serif;
+      --max: 1080px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #050910;
+      color: var(--text);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Nav ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5,9,16,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo img { height: 32px; width: auto; }
+
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .nav-logo-title {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .nav-logo-sub {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-dropdown { position: relative; }
+
+    .nav-dropdown-toggle {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-dropdown-toggle::after {
+      content: '▾';
+      font-size: 0.7rem;
+    }
+
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      padding-top: 12px;
+      min-width: 200px;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-dropdown-menu-inner {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
+
+    .nav-dropdown-menu a {
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: block;
+    }
+
+    .nav-dropdown-menu a:hover {
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+    }
+
+    .btn-nav {
+      background: var(--gold);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 8px 20px;
+      border-radius: 999px;
+      letter-spacing: 0.03em;
+      transition: opacity 0.15s;
+    }
+
+    .btn-nav:hover { opacity: 0.88; }
+
+    /* ── Hamburger ── */
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 4px 8px;
+      line-height: 1;
+    }
+
+    /* ── Page Header ── */
+    .page-header {
+      background: radial-gradient(circle at 50% 0%, #0f1a2e 0%, #020309 70%);
+      border-bottom: 1px solid var(--border);
+      padding: 80px 32px 72px;
+      text-align: center;
+    }
+
+    .page-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .page-title {
+      font-size: 3rem;
+      font-weight: 700;
+      font-family: var(--font-display);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .page-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto 28px;
+    }
+
+    .header-quote {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.6rem;
+      line-height: 1.45;
+      color: var(--gold);
+      border-left: 3px solid var(--gold-border);
+      padding: 12px 0 12px 24px;
+      text-align: left;
+      max-width: 640px;
+    }
+
+    /* ── Differentiator Strip ── */
+    .differ-strip {
+      background: #070b14;
+      border-bottom: 1px solid var(--border);
+      padding: 48px 32px;
+    }
+
+    .differ-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+    }
+
+    .differ-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .differ-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .differ-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .differ-text {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── Section wrapper ── */
+    .section-wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 80px 32px;
+    }
+
+    .section-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .section-sub {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 560px;
+      margin-bottom: 56px;
+    }
+
+    /* ── Session Arc ── */
+    .sessions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .session-row {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 0 32px;
+      position: relative;
+    }
+
+    /* Vertical connector */
+    .session-row:not(:last-child) .session-spine::after {
+      content: '';
+      position: absolute;
+      top: 44px;
+      bottom: -32px;
+      left: 35px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--gold-border), transparent);
+    }
+
+    .session-spine {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 4px;
+    }
+
+    .session-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid var(--gold-border);
+      background: var(--gold-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .session-card {
+      background: radial-gradient(circle at top left, #0d1525 0%, #070b14 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 32px;
+      transition: border-color 0.2s;
+    }
+
+    .session-card:hover { border-color: var(--gold-border); }
+
+    .session-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .session-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .session-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .badge {
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      border: 1px solid var(--gold-border);
+      color: var(--gold);
+      background: var(--gold-soft);
+      white-space: nowrap;
+    }
+
+    .session-goal {
+      font-size: 0.82rem;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .session-body {
+      font-size: 0.93rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .outcomes-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .outcomes-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .outcomes-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .outcomes-list li::before {
+      content: '⚔';
+      font-size: 0.72rem;
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .session-why {
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.65;
+      font-style: italic;
+    }
+
+    .session-why strong {
+      color: var(--gold);
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    /* ── Ability Scores Section ── */
+    .scores-section {
+      background: #070b14;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 80px 32px;
+    }
+
+    .scores-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .scores-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .score-card {
+      background: radial-gradient(circle at top left, #0f172a 0%, #070b14 100%);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      transition: border-color 0.2s;
+    }
+
+    .score-card:hover { border-color: var(--gold-border); }
+
+    .score-stat {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .score-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .score-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── Pricing Block ── */
+    .pricing-section {
+      padding: 80px 32px;
+    }
+
+    .pricing-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .pricing-card {
+      background: radial-gradient(circle at top left, #0d1525 0%, #070b14 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .pricing-card.featured {
+      border-color: var(--gold-border);
+      background: radial-gradient(circle at top left, #1a1400 0%, #070b14 100%);
+      position: relative;
+    }
+
+    .pricing-featured-badge {
+      position: absolute;
+      top: -1px;
+      right: 24px;
+      background: var(--gold);
+      color: #000;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 0 0 8px 8px;
+    }
+
+    .pricing-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .pricing-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .pricing-price {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .pricing-amount {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--text);
+      font-family: var(--font-display);
+    }
+
+    .pricing-per {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .pricing-savings {
+      font-size: 0.78rem;
+      color: var(--gold);
+      background: var(--gold-soft);
+      border: 1px solid var(--gold-border);
+      border-radius: 999px;
+      padding: 3px 10px;
+      display: inline-block;
+    }
+
+    .pricing-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .pricing-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .pricing-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .pricing-list li::before {
+      content: '✓';
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .btn-cta {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 12px;
+      background: var(--gold);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+      text-align: center;
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(217,177,92,0.3);
+    }
+
+    .btn-cta-outline {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 12px;
+      border: 1px solid var(--gold-border);
+      background: transparent;
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      transition: background 0.15s;
+      text-align: center;
+    }
+
+    .btn-cta-outline:hover { background: var(--gold-soft); }
+
+    /* ── Legal note ── */
+    .legal-note {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 32px 40px;
+      font-size: 0.72rem;
+      color: #374151;
+      line-height: 1.6;
+      border-top: 1px solid var(--border);
+      padding-top: 32px;
+    }
+
+    /* ── CTA Banner ── */
+    .cta-banner {
+      background: radial-gradient(circle at 50% 50%, #0f1a2e 0%, #020309 80%);
+      border-top: 1px solid var(--border);
+      padding: 80px 32px;
+      text-align: center;
+    }
+
+    .cta-banner-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .cta-banner-title {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .cta-banner-sub {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 500px;
+      margin: 0 auto 32px;
+    }
+
+    .cta-banner-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ── Footer ── */
+    .footer-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 32px;
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: #374151;
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 768px) {
+      .nav { padding: 0 20px; }
+      .nav-hamburger { display: block; }
+      .nav-logo-sub { display: none; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: rgba(5,9,16,0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 0 24px;
+        z-index: 999;
+        list-style: none;
+      }
+      .nav-links.nav-open { display: flex; }
+      .nav-links > li > a,
+      .nav-links > li > .nav-dropdown-toggle {
+        display: block;
+        padding: 12px 24px;
+        font-size: 0.95rem;
+        color: var(--text);
+      }
+      .nav-dropdown-menu {
+        position: static;
+        display: flex !important;
+        padding-top: 0;
+        min-width: unset;
+      }
+      .nav-dropdown-menu-inner {
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        padding: 0 0 4px 40px;
+        gap: 0;
+      }
+      .nav-dropdown-menu a {
+        padding: 8px 0;
+        font-size: 0.88rem;
+        color: var(--muted);
+      }
+      .nav-dropdown-toggle::after { display: none; }
+      .btn-nav {
+        margin: 8px 20px 4px;
+        display: block;
+        text-align: center;
+        padding: 12px 20px;
+      }
+      .footer {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        padding: 32px 20px;
+      }
+
+      .page-header { padding: 60px 20px 48px; }
+      .page-title { font-size: 2.2rem; }
+
+      .differ-inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .session-row {
+        grid-template-columns: 48px 1fr;
+        gap: 0 16px;
+      }
+      .session-num { width: 36px; height: 36px; font-size: 0.85rem; }
+      .session-row:not(:last-child) .session-spine::after { left: 23px; }
+      .session-card { padding: 24px 20px; }
+      .session-header { flex-direction: column; gap: 10px; }
+
+      .scores-grid { grid-template-columns: 1fr 1fr; }
+      .pricing-cards { grid-template-columns: 1fr; }
+
+      .cta-banner { padding: 60px 20px; }
+      .cta-banner-title { font-size: 1.7rem; }
+
+      .section-wrap { padding: 60px 20px; }
+      .scores-section { padding: 60px 20px; }
+      .pricing-section { padding: 60px 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .page-title { font-size: 1.8rem; }
+      .scores-grid { grid-template-columns: 1fr; }
+      .header-quote { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a class="nav-logo" href="index.html">
+      <img src="assets/nav-dragon.png" alt="" />
+      <div class="nav-logo-text">
+        <span class="nav-logo-title">Invest Like a Warrior</span>
+        <span class="nav-logo-sub">Financial Education</span>
+      </div>
+    </a>
+    <button class="nav-hamburger" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links">
+      <li class="nav-dropdown">
+        <span class="nav-dropdown-toggle">About</span>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="index.html#about">Meet Your Coach</a>
+            <a href="index.html#mission">Our Mission and Values</a>
+            <a href="team.html">Meet the Team</a>
+            <a href="contact.html">Work with Us</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="coaching.html" style="color:var(--text);">How Coaching Works</a></li>
+      <li><a href="quiz.html">Take the Quiz</a></li>
+      <li><a href="https://ilaw-app.netlify.app" target="_blank">The App</a></li>
+      <li><a class="btn-nav" href="intake.html">Start Your Campaign</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="page-eyebrow">The 4-Session Arc · Warrior Class Coaching</div>
+    <h1 class="page-title">How Coaching Works</h1>
+    <p class="page-sub">
+      ILAW coaching is not traditional financial advising. There are no bank statements, no tax returns, and no judgment. Just six honest numbers and a plan built entirely around your warrior class.
+    </p>
+    <blockquote class="header-quote">
+      "You don't need to hand over your bank statements.<br>You just need six honest numbers."
+    </blockquote>
+  </section>
+
+  <!-- Differentiator Strip -->
+  <div class="differ-strip">
+    <div class="differ-inner">
+      <div class="differ-item">
+        <div class="differ-icon">🛡</div>
+        <div>
+          <div class="differ-label">No Vulnerability Required</div>
+          <p class="differ-text">We work from your Financial Ability Scores, not your bank balance. The D20 scoring system removes the vulnerability barrier of sharing raw financial data while still giving us everything we need to build a real plan.</p>
+        </div>
+      </div>
+      <div class="differ-item">
+        <div class="differ-icon">⚔️</div>
+        <div>
+          <div class="differ-label">A Complete Arc in 4 Sessions</div>
+          <p class="differ-text">Most financial conversations start strong and trail off with no closure. The ILAW arc has a defined beginning, middle, and end. You leave Session 4 with a reviewed character sheet, a 90-day plan, and a warrior identity that sticks.</p>
+        </div>
+      </div>
+      <div class="differ-item">
+        <div class="differ-icon">🎯</div>
+        <div>
+          <div class="differ-label">Built Around Your Class</div>
+          <p class="differ-text">Your warrior class is not a personality label. It is a diagnosis. Every session is structured around the specific ability scores that need the most attention, so every hour is targeted, not generic.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4-Session Arc -->
+  <div class="section-wrap">
+    <div class="section-eyebrow">The Coaching Journey</div>
+    <h2 class="section-heading">The 4-Session Arc</h2>
+    <p class="section-sub">
+      Each session is 30 minutes, focused and intentional. Each one builds on the last. The full journey takes you from raw scores to a named warrior identity, a prioritized battle plan, a deep dive on your biggest challenge, and a graduation with a clear path forward.
+    </p>
+
+    <div class="sessions-list">
+
+      <!-- Session 1 -->
+      <div class="session-row">
+        <div class="session-spine">
+          <div class="session-num">01</div>
+        </div>
+        <div class="session-card">
+          <div class="session-header">
+            <h3 class="session-name">The Scoring Session</h3>
+            <div class="session-badge">
+              <span class="badge">30 min</span>
+            </div>
+          </div>
+          <div class="session-goal">Goal: Generate or review all six financial ability scores</div>
+          <p class="session-body">
+            The client completes their D20 ability score assessment. This happens either through the ILAW app with Sage assistance before the session, or we walk through it together live. No bank statements required. Six honest numbers is all we need.
+          </p>
+          <div class="outcomes-label">You leave with</div>
+          <ul class="outcomes-list">
+            <li>A complete financial character sheet with all six scores</li>
+            <li>A clear picture of your strongest and weakest stats</li>
+            <li>An understanding of what each score means in the context of your life</li>
+            <li>A named battlefield, the one or two scores most urgently needing attention</li>
+          </ul>
+          <div class="session-why">
+            <strong>Why it works:</strong> Low vulnerability, high curiosity. Feels like a game, delivers real insight. You leave feeling oriented rather than overwhelmed.
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 2 -->
+      <div class="session-row">
+        <div class="session-spine">
+          <div class="session-num">02</div>
+        </div>
+        <div class="session-card">
+          <div class="session-header">
+            <h3 class="session-name">The Warrior Class Session</h3>
+            <div class="session-badge">
+              <span class="badge">30 min</span>
+            </div>
+          </div>
+          <div class="session-goal">Goal: Confirm your warrior class and build the turnaround plan</div>
+          <p class="session-body">
+            Based on your Session 1 scorecard, your warrior class is confirmed and your personalized turnaround plan is built around your weakest scores. Every low score, especially Wisdom and Constitution, has a story worth honoring before it has a plan worth building.
+          </p>
+          <div class="outcomes-label">You leave with</div>
+          <ul class="outcomes-list">
+            <li>Your confirmed warrior class and what it means for your financial identity</li>
+            <li>A prioritized action list ranked by impact and urgency</li>
+            <li>Clarity on which battles to fight first and which to leave for later</li>
+            <li>An understanding of your battle scars as part of your warrior story, not evidence of failure</li>
+          </ul>
+          <div class="session-why">
+            <strong>Why it works:</strong> The warrior identity reframe turns shame into motivation. You stop seeing yourself as behind and start seeing yourself as in the fight.
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 3 -->
+      <div class="session-row">
+        <div class="session-spine">
+          <div class="session-num">03</div>
+        </div>
+        <div class="session-card">
+          <div class="session-header">
+            <h3 class="session-name">The Deep Dive Session</h3>
+            <div class="session-badge">
+              <span class="badge">30 min</span>
+            </div>
+          </div>
+          <div class="session-goal">Goal: Full attention on one specific score or goal</div>
+          <p class="session-body">
+            One battlefield gets the complete focus. This is the most personalized session and where the six score playbooks do the heaviest work. Common deep dive areas include income ceiling strategy, cash flow restructuring, debt-to-income triage, net worth awareness, credit score mechanics, and network building.
+          </p>
+          <div class="outcomes-label">You leave with</div>
+          <ul class="outcomes-list">
+            <li>A concrete action plan for your primary battlefield</li>
+            <li>Clarity on realistic timelines for improvement</li>
+            <li>Awareness of whether your situation warrants a Warlord referral for licensed professional advising</li>
+          </ul>
+          <div class="session-why">
+            <strong>Why it works:</strong> Most financial conversations stay broad by necessity. Giving one battlefield your full attention, with a structured playbook behind it, is where real clarity happens. This is where the work stops feeling like a conversation and starts feeling like a plan.
+          </div>
+        </div>
+      </div>
+
+      <!-- Session 4 -->
+      <div class="session-row">
+        <div class="session-spine">
+          <div class="session-num">04</div>
+        </div>
+        <div class="session-card">
+          <div class="session-header">
+            <h3 class="session-name">The Graduation Session</h3>
+            <div class="session-badge">
+              <span class="badge">30 min</span>
+            </div>
+          </div>
+          <div class="session-goal">Goal: Wrap up, celebrate progress, and define the path forward</div>
+          <p class="session-body">
+            The final session reviews your score targets, honors the journey, and sets you up for independence or the appropriate next step. Most people never get closure on financial conversations. Graduation makes the transformation feel real and referrable.
+          </p>
+          <div class="outcomes-label">You leave with</div>
+          <ul class="outcomes-list">
+            <li>A reviewed and updated character sheet with progress markers</li>
+            <li>Your battle scars celebrated as part of your warrior identity</li>
+            <li>A clear definition of what success looks like in the next 90 days</li>
+            <li>A natural and dignified path to a Warlord referral if your situation calls for professional advising</li>
+          </ul>
+          <div class="session-why">
+            <strong>Why it works:</strong> Completion matters. Graduation makes the transformation feel real and worth talking about.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Ability Scores Section -->
+  <div class="scores-section">
+    <div class="scores-inner">
+      <div class="section-eyebrow">The Foundation</div>
+      <h2 class="section-heading">Your Six Financial Ability Scores</h2>
+      <p class="section-sub">
+        ILAW coaching is built entirely on this system. Instead of spreadsheets and bank statements, you arrive with six scores on a D20 scale. Together they reveal exactly where you are, what needs attention, and in what order.
+      </p>
+      <div class="scores-grid">
+        <div class="score-card">
+          <div class="score-stat">Strength</div>
+          <div class="score-name">Income</div>
+          <p class="score-desc">Your ability to generate money. Covers your current income ceiling, income sources, and potential for growth through career moves, side income, or investment vehicles.</p>
+        </div>
+        <div class="score-card">
+          <div class="score-stat">Dexterity</div>
+          <div class="score-name">Liquidity</div>
+          <p class="score-desc">How well money flows through your life. A flow problem, not an income problem. Money often exists but is trapped, invisible, or unplanned. This score exposes the leak.</p>
+        </div>
+        <div class="score-card">
+          <div class="score-stat">Constitution</div>
+          <div class="score-name">Net Worth</div>
+          <p class="score-desc">The real number. Assets plus cash plus equity minus everything you owe. Most people have never calculated this honestly. Constitution only means something alongside the full scorecard.</p>
+        </div>
+        <div class="score-card">
+          <div class="score-stat">Wisdom</div>
+          <div class="score-name">Debt to Income</div>
+          <p class="score-desc">The open battle wound score. Almost always a life event problem. The debt has a story. The job in Session 3 is triage and a healing plan, never shame.</p>
+        </div>
+        <div class="score-card">
+          <div class="score-stat">Intelligence</div>
+          <div class="score-name">Credit Score</div>
+          <p class="score-desc">A lagging indicator, not a leading one. Almost always a symptom of Wisdom score weakness. We give clients permission to relax about this number and fix the root cause instead.</p>
+        </div>
+        <div class="score-card">
+          <div class="score-stat">Charisma</div>
+          <div class="score-name">Financial Network</div>
+          <p class="score-desc">The multiplier score. The only stat that directly accelerates every other score through access and opportunity. If you are stuck across the board, Charisma may be the first one to fix.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Legal -->
+  <div style="max-width:var(--max);margin:0 auto;padding:0 32px 64px;">
+    <p style="font-size:0.72rem;color:#374151;line-height:1.6;border-top:1px solid var(--border);padding-top:24px;">
+      ILAW coaching operates as a financial education and entertainment program. Coaches work from self-reported D20 ability scores and provide guidance, frameworks, and awareness, not licensed financial advice. Clients requiring licensed investment advising, tax planning, or legal financial counsel are referred to appropriate professionals through the Warlord program.
+    </p>
+  </div>
+
+  <!-- CTA Banner -->
+  <div class="cta-banner">
+    <div class="cta-banner-eyebrow">Founding Warrior Cohort · Limited Spots</div>
+    <h2 class="cta-banner-title">Apply for the Founding Cohort</h2>
+    <p class="cta-banner-sub">We're opening a small cohort of founding spots. Sessions are complimentary. In return, we ask for honest feedback after each call. Your input shapes the program.</p>
+    <div class="cta-banner-actions">
+      <a class="btn-cta" href="intake.html">Apply for a Founding Spot</a>
+      <a class="btn-cta-outline" href="quiz.html">Take the Quiz First</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <span>© 2026 Invest Like a Warrior · Financial Education</span>
+    <span>Not licensed financial advice.</span>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector('.nav-hamburger');
+    const navLinks  = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('nav-open');
+      hamburger.textContent = open ? '✕' : '☰';
+    });
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.nav')) {
+        navLinks.classList.remove('nav-open');
+        hamburger.textContent = '☰';
+      }
+    });
+  </script>
+
+</body>
+</html>

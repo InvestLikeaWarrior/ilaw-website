@@ -2,9 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <title>Meet the Team · Invest Like a Warrior</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Meet the warriors behind Invest Like a Warrior." />
+  <meta name="description" content="Meet the team behind Invest Like a Warrior — Jamie Hoffman, The Sage AI, and the creative minds building a D&D-inspired financial education and coaching platform." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Meet the Team · Invest Like a Warrior" />
+  <meta property="og:description" content="Meet the warriors behind Invest Like a Warrior." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://investlikeawarrior.com/team.html" />
+  <meta property="og:image" content="https://investlikeawarrior.com/assets/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://investlikeawarrior.com/assets/og-image.jpg" />
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BL0E8Z8863"></script>
@@ -55,9 +65,37 @@
       height: 64px;
     }
 
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     .nav-logo img {
-      height: 32px;
+      height: 40px;
       width: auto;
+    }
+
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .nav-logo-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-logo-sub {
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.8;
     }
 
     .nav-links {
@@ -168,23 +206,32 @@
 
     /* ── Team grid ── */
     .team-section {
-      max-width: var(--max);
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 80px 32px 96px;
+      padding: 80px 40px 96px;
     }
 
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .team-grid-bottom {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 24px;
+      margin-top: 24px;
     }
 
     @media (max-width: 900px) {
       .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .team-grid-bottom { grid-template-columns: 1fr 1fr; }
     }
 
-    @media (max-width: 520px) {
+    @media (max-width: 560px) {
       .team-grid { grid-template-columns: 1fr; }
+      .team-grid-bottom { grid-template-columns: 1fr; }
       .page-title { font-size: 2.2rem; }
     }
 
@@ -206,7 +253,7 @@
 
     .staff-photo {
       width: 100%;
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 3 / 4;
       background: #0c1220;
       border-bottom: 1px solid var(--border);
       display: flex;
@@ -281,6 +328,37 @@
       flex: 1;
     }
 
+    /* ── Card emblem ── */
+    .card-emblem {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      pointer-events: none;
+    }
+
+    /* ── Staff external link ── */
+    .staff-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 12px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border-bottom: 1px solid var(--gold-border);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+      text-decoration: none;
+      width: fit-content;
+    }
+
+    .staff-link:hover { border-color: var(--gold); }
+
     /* ── Peasant card (Bob) ── */
     .staff-card.is-peasant .staff-photo {
       background: #080b12;
@@ -316,7 +394,7 @@
       justify-content: center;
       text-align: center;
       padding: 40px 24px;
-      min-height: 340px;
+      min-height: 480px;
       transition: border-color 0.2s, background 0.2s;
       text-decoration: none;
     }
@@ -377,6 +455,86 @@
       font-size: 0.75rem;
       color: #374151;
     }
+
+    /* ── Hamburger ── */
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 4px 8px;
+      line-height: 1;
+    }
+
+    /* ── Mobile nav + footer ── */
+    @media (max-width: 768px) {
+      .nav { padding: 0 20px; }
+      .nav-hamburger { display: block; }
+      .nav-logo-sub { display: none; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: rgba(5,9,16,0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 0 24px;
+        z-index: 999;
+        list-style: none;
+      }
+      .nav-links.nav-open { display: flex; }
+      .nav-links > li > a,
+      .nav-links > li > .nav-dropdown-toggle {
+        display: block;
+        padding: 12px 24px;
+        font-size: 0.95rem;
+        color: var(--text);
+      }
+      .nav-dropdown-menu {
+        position: static;
+        display: flex !important;
+        padding-top: 0;
+        min-width: unset;
+      }
+      .nav-dropdown-menu-inner {
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        padding: 0 0 4px 40px;
+        gap: 0;
+      }
+      .nav-dropdown-menu a {
+        padding: 8px 0;
+        font-size: 0.88rem;
+        color: var(--muted);
+      }
+      .nav-dropdown-toggle::after { display: none; }
+      .btn-nav {
+        margin: 8px 20px 4px;
+        display: block;
+        text-align: center;
+        padding: 12px 20px;
+      }
+      .footer {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        padding: 32px 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page-header { padding: 60px 20px 48px; }
+      .page-title { font-size: 2rem; }
+      .page-sub { font-size: 0.9rem; }
+      .team-section { padding: 48px 20px 64px; }
+    }
   </style>
 </head>
 
@@ -385,22 +543,27 @@
   <!-- Nav -->
   <nav class="nav">
     <a class="nav-logo" href="index.html">
-      <img src="assets/ilaw-logo.png" alt="Invest Like a Warrior" onerror="this.style.display='none';this.nextSibling.style.display='block'"/>
-      <span style="display:none;color:var(--gold);font-weight:700;font-family:Georgia,serif;font-size:1rem;">INVEST LIKE A WARRIOR</span>
+      <img src="assets/nav-dragon.png" alt="" />
+      <div class="nav-logo-text">
+        <span class="nav-logo-title">Invest Like a Warrior</span>
+        <span class="nav-logo-sub">Financial Education</span>
+      </div>
     </a>
+    <button class="nav-hamburger" aria-label="Menu">&#9776;</button>
     <ul class="nav-links">
       <li class="nav-dropdown">
         <span class="nav-dropdown-toggle">About</span>
         <div class="nav-dropdown-menu">
           <div class="nav-dropdown-menu-inner">
-            <a href="index.html#about">About ILAW</a>
-            <a href="index.html#about">About Jamie</a>
-            <a href="index.html#mission">Mission & Values</a>
+            <a href="index.html#about">Meet Your Coach</a>
+            <a href="index.html#mission">Our Mission and Values</a>
             <a href="team.html">Meet the Team</a>
+            <a href="contact.html">Work with Us</a>
           </div>
         </div>
       </li>
-      <li><a href="index.html#quiz">Take the Quiz</a></li>
+      <li><a href="coaching.html">How Coaching Works</a></li>
+      <li><a href="quiz.html">Take the Quiz</a></li>
       <li><a href="https://ilaw-app.netlify.app" target="_blank">The App</a></li>
       <li><a class="btn-nav" href="intake.html">Start Your Campaign</a></li>
     </ul>
@@ -417,45 +580,73 @@
 
   <!-- Team Grid -->
   <section class="team-section">
+
+    <!-- Row 1: Core team -->
     <div class="team-grid">
 
       <!-- Jamie Hoffman -->
       <div class="staff-card">
         <div class="staff-photo">
-          <div class="staff-photo-placeholder">⚔️</div>
+          <img src="assets/jamie-warrior-2.jpg" alt="Jamie Hoffman" />
         </div>
         <div class="staff-info">
-          <div class="staff-name">Jamie Hoffman</div>
+          <h2 class="staff-name">Jamie Hoffman</h2>
           <div class="staff-title">Founder & Chief Financial Warlord</div>
-          <div class="warrior-badge">🏴‍☠️ Business Pirate</div>
+          <div class="warrior-badge"><img src="assets/emblem-pirate.png" alt="" style="height:24px;width:auto;" /> Business Pirate</div>
           <p class="staff-bio">
             Built ILAW from a D&D handbook and a stack of personal finance books. 15 years in digital marketing, deep in the AI space, and still convinced the best financial education feels like a campaign worth fighting.
           </p>
+          <p class="staff-bio" style="margin-top:8px;">
+            <span style="color:var(--gold);font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:700;">Current Games</span><br>
+            Conquest Last Argument of Kings · Warhammer 40K · Age of Sigmar · Trench Crusade
+          </p>
+          <a class="staff-link" href="https://ilaw-app.netlify.app" target="_blank">Access the App →</a>
         </div>
       </div>
 
       <!-- The Sage -->
       <div class="staff-card">
         <div class="staff-photo">
-          <div class="staff-photo-placeholder">🔮</div>
+          <img src="assets/sage-portrait.png" alt="The Sage" />
         </div>
         <div class="staff-info">
-          <div class="staff-name">The Sage</div>
+          <h2 class="staff-name">The Sage</h2>
           <div class="staff-title">Master of Markets & Consumer Sentiment</div>
-          <div class="warrior-badge">🪨 Market Viking</div>
+          <div class="warrior-badge"><img src="assets/emblem-viking.png" alt="" style="height:24px;width:auto;" /> Market Viking</div>
           <p class="staff-bio">
-            Reads the economic runes so you don't have to. The Sage monitors market conditions, consumer sentiment, and financial signals — and translates all of it into warrior guidance inside the app.
+            The Sage is ILAW's first AI employee. Not a chatbot. Not a feature. A permanent member of the warband. His charge: read the economic runes, monitor market conditions and consumer sentiment, and translate all of it into warrior guidance inside the app.
           </p>
         </div>
       </div>
 
+      <!-- Novice -->
+      <div class="staff-card">
+        <div class="staff-photo" style="background:#f5a800;">
+          <img src="assets/novice-logo.png" alt="Novice" style="object-fit:contain;padding:24px;" />
+        </div>
+        <div class="staff-info">
+          <h2 class="staff-name">Novice</h2>
+          <div class="staff-title">Brand Designer & Visual Strategist</div>
+          <div class="warrior-badge"><img src="assets/emblem-pirate.png" alt="" style="height:24px;width:auto;" /> Business Pirate</div>
+          <p class="staff-bio">
+            A creative brand studio specializing in TTRPG-style design systems. Novice combines narrative thinking with strategic design to build cohesive visual identities. The mind behind ILAW's visual world.
+          </p>
+          <a class="staff-link" href="https://www.behance.net/davidvillada3" target="_blank">View Portfolio →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Row 2: Bob + Join -->
+    <div class="team-grid-bottom">
+
       <!-- Bob the Training Dummy -->
       <div class="staff-card is-peasant">
         <div class="staff-photo">
-          <div class="staff-photo-placeholder">🪵</div>
+          <img src="assets/bob.jpg" alt="Bob" style="object-position: top center;" />
         </div>
         <div class="staff-info">
-          <div class="staff-name">Bob</div>
+          <h2 class="staff-name">Bob</h2>
           <div class="staff-title">Training Dummy & Cautionary Tale</div>
           <div class="peasant-badge">🌾 Peasant</div>
           <p class="staff-bio">
@@ -464,17 +655,18 @@
         </div>
       </div>
 
-      <!-- Join the Team -->
-      <a class="staff-card is-open" href="https://calendly.com/investlikeawarrior" target="_blank">
+      <!-- Work with us -->
+      <a class="staff-card is-open" href="contact.html">
         <div class="open-icon">⚔️</div>
-        <div class="open-title">Your Seat at the Table</div>
+        <div class="open-title">Work with Us</div>
         <p class="open-sub">
-          The warband has room for one more. We're looking for warriors who want to build something that matters.
+          We're always looking for artists, gamers, writers, and collaborators who want to build from inside the nerd community.
         </p>
         <span class="open-cta">Start the Conversation →</span>
       </a>
 
     </div>
+
   </section>
 
   <div class="section-divider"></div>
@@ -485,5 +677,23 @@
     <span>Not a licensed financial advisor. All content is educational.</span>
   </footer>
 
+  <script>
+    (function() {
+      var btn = document.querySelector('.nav-hamburger');
+      var links = document.querySelector('.nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        links.classList.toggle('nav-open');
+        btn.textContent = links.classList.contains('nav-open') ? '✕' : '☰';
+      });
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('nav')) {
+          links.classList.remove('nav-open');
+          btn.textContent = '☰';
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
