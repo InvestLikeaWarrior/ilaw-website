@@ -254,7 +254,7 @@
       background-image: url('assets/portrait-ebook.jpg');
       background-color: #050910;
       background-size: cover;
-      background-position: center top;
+      background-position: center center;
     }
 
     .hero-panel:nth-child(3) .panel-bg {
@@ -284,6 +284,7 @@
       z-index: 1;
       padding: 36px 32px;
       width: 100%;
+      background: linear-gradient(to top, rgba(5,9,16,0.82) 55%, rgba(5,9,16,0.12) 100%);
     }
 
     .panel-eyebrow {
@@ -406,6 +407,27 @@
       .carousel-dots .dot.active {
         background: var(--gold);
         transform: scale(1.35);
+      }
+
+      .carousel-arrow {
+        background: none;
+        border: 1px solid rgba(217,177,92,0.35);
+        color: var(--gold);
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        font-size: 18px;
+        line-height: 1;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        flex-shrink: 0;
+      }
+
+      .carousel-arrow:active {
+        background: rgba(217,177,92,0.12);
       }
     }
 
@@ -897,11 +919,13 @@
 
   </section>
 
-  <!-- Carousel dots (mobile only) -->
+  <!-- Carousel dots + arrows (mobile only) -->
   <div class="carousel-dots" id="carousel-dots">
+    <button class="carousel-arrow" id="carousel-prev" aria-label="Previous slide">&#8249;</button>
     <span class="dot active"></span>
     <span class="dot"></span>
     <span class="dot"></span>
+    <button class="carousel-arrow" id="carousel-next" aria-label="Next slide">&#8250;</button>
   </div>
 
   <div class="section-divider"></div>
@@ -1066,19 +1090,33 @@
   </footer>
 
   <script>
-    // Mobile carousel dots
+    // Mobile carousel dots + arrows
     (function() {
       var panels = document.querySelector('.hero-panels');
       var dots = document.querySelectorAll('#carousel-dots .dot');
       if (!panels || !dots.length) return;
+
       panels.addEventListener('scroll', function() {
         var index = Math.round(panels.scrollLeft / panels.offsetWidth);
         dots.forEach(function(d, i) { d.classList.toggle('active', i === index); });
       }, { passive: true });
+
       dots.forEach(function(dot, i) {
         dot.addEventListener('click', function() {
           panels.scrollTo({ left: i * panels.offsetWidth, behavior: 'smooth' });
         });
+      });
+
+      var prev = document.getElementById('carousel-prev');
+      var next = document.getElementById('carousel-next');
+      if (prev) prev.addEventListener('click', function() {
+        var idx = Math.round(panels.scrollLeft / panels.offsetWidth);
+        panels.scrollTo({ left: Math.max(0, idx - 1) * panels.offsetWidth, behavior: 'smooth' });
+      });
+      if (next) next.addEventListener('click', function() {
+        var idx = Math.round(panels.scrollLeft / panels.offsetWidth);
+        var max = document.querySelectorAll('.hero-panel').length - 1;
+        panels.scrollTo({ left: Math.min(max, idx + 1) * panels.offsetWidth, behavior: 'smooth' });
       });
     })();
 
