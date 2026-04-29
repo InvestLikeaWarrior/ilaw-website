@@ -242,24 +242,24 @@
       transition: transform 0.5s ease;
     }
 
-    /* Portrait backgrounds — drop in real images when ready */
+    /* Portrait backgrounds — new order: Campaign, Ebook, App */
     .hero-panel:nth-child(1) .panel-bg {
-      background-image: url('assets/portrait-knight.png');
-      background-color: #0c1828;
-      background-size: cover;
-      background-position: center top;
-    }
-
-    .hero-panel:nth-child(2) .panel-bg {
       background-image: url('assets/panel-campaign-dnd.jpg');
       background-color: #12100a;
       background-size: cover;
       background-position: center center;
     }
 
-    .hero-panel:nth-child(3) .panel-bg {
+    .hero-panel:nth-child(2) .panel-bg {
       background-image: url('assets/portrait-ebook.jpg');
       background-color: #050910;
+      background-size: cover;
+      background-position: center top;
+    }
+
+    .hero-panel:nth-child(3) .panel-bg {
+      background-image: url('assets/portrait-knight.png');
+      background-color: #0c1828;
       background-size: cover;
       background-position: center top;
     }
@@ -375,21 +375,13 @@
 
       .hero-headline { font-size: 2.2rem; }
 
-      /* Emblems: small badge in bottom-right corner */
-      .panel-emblem {
-        top: auto;
-        left: auto;
-        bottom: 150px;
-        right: 14px;
-        width: 54px;
-        max-width: 54px;
-        transform: none;
-        opacity: 0.72;
-      }
+      /* Hide emblems on mobile — not needed in carousel */
+      .panel-emblem { display: none; }
 
-      .hero-panel:hover .panel-emblem {
-        opacity: 0.72;
-        transform: none;
+      /* Dark bar behind panel text for readability */
+      .panel-content {
+        background: linear-gradient(to top, rgba(5,9,16,0.82) 60%, rgba(5,9,16,0.18) 100%);
+        padding-top: 40px;
       }
 
       /* Carousel dots */
@@ -864,20 +856,7 @@
   <!-- Hero Panels -->
   <section class="hero-panels">
 
-    <!-- Panel 1: The App -->
-    <a class="hero-panel" href="https://ilaw-app.netlify.app" target="_blank">
-      <div class="panel-bg"></div>
-      <img class="panel-emblem" src="assets/emblem-knight.png" alt="" />
-      <div class="panel-overlay"></div>
-      <div class="panel-content">
-        <div class="panel-eyebrow">Free Beta</div>
-        <h2 class="panel-title">Access the App</h2>
-        <p class="panel-sub">Track your ability scores. Complete quests. Build your Power Object.</p>
-        <span class="panel-cta">Enter the Campaign →</span>
-      </div>
-    </a>
-
-    <!-- Panel 2: Start Your Campaign -->
+    <!-- Panel 1: Start Your Campaign -->
     <a class="hero-panel" href="intake.html">
       <div class="panel-bg"></div>
       <img class="panel-emblem" src="assets/emblem-pirate.png" alt="" />
@@ -890,7 +869,7 @@
       </div>
     </a>
 
-    <!-- Panel 3: The Ebook -->
+    <!-- Panel 2: The Ebook -->
     <a class="hero-panel" href="https://warriorinvestor.gumroad.com/l/ubczxr" target="_blank">
       <div class="panel-bg"></div>
       <img class="panel-emblem" src="assets/emblem-viking.png" alt="" />
@@ -900,6 +879,19 @@
         <h2 class="panel-title">Download the Ebook</h2>
         <p class="panel-sub">The ILAW handbook. Six warrior classes. Six ability scores. One rulebook.</p>
         <span class="panel-cta">Claim Your Copy →</span>
+      </div>
+    </a>
+
+    <!-- Panel 3: The App -->
+    <a class="hero-panel" href="https://ilaw-app.netlify.app" target="_blank">
+      <div class="panel-bg"></div>
+      <img class="panel-emblem" src="assets/emblem-knight.png" alt="" />
+      <div class="panel-overlay"></div>
+      <div class="panel-content">
+        <div class="panel-eyebrow">Free Beta</div>
+        <h2 class="panel-title">Access the App</h2>
+        <p class="panel-sub">Track your ability scores. Complete quests. Build your Power Object.</p>
+        <span class="panel-cta">Enter the Campaign →</span>
       </div>
     </a>
 
