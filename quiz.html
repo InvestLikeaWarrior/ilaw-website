@@ -1144,7 +1144,7 @@
             })
           })
         ]);
-        if (typeof gtag === 'function') gtag('event', 'quiz_optin_submitted', { warrior_class: pendingWinner });
+        if (typeof gtag === 'function') gtag('event', 'qualify_lead', { warrior_class: pendingWinner });
         input.style.display = 'none';
         btn.style.display = 'none';
         successEl.classList.add('is-visible');
