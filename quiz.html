@@ -860,7 +860,7 @@
           </a>
           <span class="retake-link" onclick="resetQuiz()">Retake the quiz</span>
         </div>
-        <p style="font-size:0.8rem;margin-top:12px;"><a href="assets/ilaw-character-sheet.pdf" style="color:var(--gold);">or download the printable sheet</a></p>
+        <p style="font-size:0.8rem;margin-top:12px;"><a href="assets/ilaw-character-sheet.pdf" style="color:var(--gold);" onclick="if (typeof gtag === 'function') gtag('event', 'sheet_download', { link_location: 'quiz_result' });">or download the printable sheet</a></p>
       </div>
     </div>
 
