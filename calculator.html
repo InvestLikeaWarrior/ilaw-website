@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invest Like a Warrior — Financial Character Sheet Calculator</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #f7f3ea; color: #1c1a16;
+    padding: 16px 12px 40px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  header.banner {
+    border: 3px double #1c1a16; border-radius: 8px; background: #fffdf8;
+    text-align: center; padding: 14px 10px 10px; margin-bottom: 12px;
+  }
+  header.banner .brand { font-family: Cinzel, Georgia, serif; letter-spacing: 4px; font-size: 13px; }
+  header.banner h1 { font-family: Cinzel, Georgia, serif; font-size: 26px; letter-spacing: 1px; margin: 4px 0 2px; }
+  header.banner .tag { font-style: italic; color: #5a4a2f; font-size: 14px; }
+  .card {
+    border: 2px solid #1c1a16; border-radius: 8px; background: #fffdf8;
+    padding: 12px 14px; margin-bottom: 12px;
+  }
+  .card h2 {
+    font-family: Cinzel, Georgia, serif; font-size: 16px; letter-spacing: 2px;
+    border-bottom: 1px solid #1c1a16; padding-bottom: 5px; margin-bottom: 6px;
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  .card .instr { font-style: italic; color: #5a4a2f; font-size: 14px; margin-bottom: 8px; }
+  label.flabel { display: block; font-size: 13px; color: #5a4a2f; margin: 8px 0 3px; }
+  input[type="text"], input[type="number"] {
+    width: 100%; padding: 9px 10px; font-size: 16px; font-family: inherit;
+    border: 1px solid #8a7a5c; border-radius: 4px; background: #fff; color: #1c1a16;
+  }
+  input:focus { outline: 2px solid #8a6d3b; outline-offset: 0; }
+  .classes { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .classes label {
+    font-family: Cinzel, Georgia, serif; font-size: 13px; cursor: pointer;
+    border: 1px solid #8a7a5c; border-radius: 20px; padding: 6px 12px; background: #fff;
+  }
+  .classes input { display: none; }
+  .classes label:has(input:checked) { background: #1c1a16; color: #f7f3ea; border-color: #1c1a16; }
+  .scorechip {
+    font-family: Cinzel, Georgia, serif; font-size: 14px; color: #8a6d3b; white-space: nowrap;
+  }
+  .scorechip b { font-size: 20px; color: #1c1a16; }
+  .twocol { display: flex; gap: 10px; }
+  .twocol > div { flex: 1; min-width: 0; }
+  .colhead { font-family: Cinzel, Georgia, serif; font-size: 12px; letter-spacing: 1px; color: #5a4a2f; margin-bottom: 4px; }
+  .moneyrow { display: flex; gap: 6px; margin-bottom: 6px; }
+  .moneyrow input[type="text"] { flex: 1.2; }
+  .moneyrow input[type="number"] { flex: 1; }
+  .totalrow {
+    border-top: 2px solid #1c1a16; padding-top: 5px; margin-top: 2px;
+    font-family: Cinzel, Georgia, serif; font-size: 13px; display: flex; justify-content: space-between;
+  }
+  .eqline {
+    text-align: center; font-size: 17px; margin-top: 10px;
+    font-family: Cinzel, Georgia, serif; letter-spacing: 0.5px;
+  }
+  .eqline b { font-size: 20px; }
+  .microcopy { font-style: italic; color: #5a4a2f; text-align: center; font-size: 13.5px; margin-top: 4px; }
+  .radioline { display: flex; gap: 14px; flex-wrap: wrap; margin: 6px 0 8px; font-size: 14px; }
+  .radioline label { cursor: pointer; }
+  .readout { font-size: 14px; color: #5a4a2f; margin-top: 6px; }
+  .readout b { color: #1c1a16; }
+  .result-row {
+    display: flex; align-items: center; gap: 12px;
+    border: 1px solid #8a7a5c; border-radius: 6px; background: #fff;
+    padding: 8px 12px; margin-bottom: 7px;
+  }
+  .result-row .circle {
+    width: 52px; height: 52px; flex: 0 0 52px; border: 2px solid #1c1a16; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: Cinzel, Georgia, serif; font-size: 21px; font-weight: 700;
+  }
+  .result-row .rname { font-family: Cinzel, Georgia, serif; font-size: 14px; letter-spacing: 1px; }
+  .result-row .rtier { font-style: italic; color: #5a4a2f; font-size: 13px; }
+  .result-row.lowest { border-color: #8a6d3b; box-shadow: 0 0 0 1px #8a6d3b; background: #fffdf0; }
+  .questline {
+    text-align: center; font-style: italic; color: #8a6d3b; font-size: 15.5px; margin: 10px 0 2px;
+  }
+  .incomplete { text-align: center; font-style: italic; color: #5a4a2f; font-size: 14px; margin: 10px 0 2px; }
+  .upsell {
+    border: 2px solid #8a6d3b; border-radius: 8px; background: #fffdf0;
+    text-align: center; padding: 12px; margin-bottom: 12px;
+  }
+  .upsell .q { font-family: Cinzel, Georgia, serif; font-size: 16px; margin-bottom: 3px; }
+  .upsell .offer { font-style: italic; color: #5a4a2f; font-size: 14px; }
+  button.printbtn {
+    display: block; width: 100%; padding: 12px; cursor: pointer;
+    font-family: Cinzel, Georgia, serif; font-size: 15px; letter-spacing: 1px;
+    background: #1c1a16; color: #f7f3ea; border: none; border-radius: 6px;
+  }
+  footer { text-align: center; font-style: italic; color: #5a4a2f; font-size: 13px; margin-top: 14px; }
+  #printSheet { display: none; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .wrap { display: none; }
+    #printSheet { display: block; padding: 0.4in; }
+    #printSheet h1 { font-family: Cinzel, Georgia, serif; font-size: 20pt; text-align: center; }
+    #printSheet .pwho { text-align: center; font-style: italic; margin-bottom: 14px; }
+    #printSheet table { width: 100%; border-collapse: collapse; font-size: 12pt; }
+    #printSheet td { border: 1px solid #1c1a16; padding: 8px 10px; }
+    #printSheet .pquest { text-align: center; font-style: italic; margin-top: 14px; }
+    #printSheet .pfoot { text-align: center; font-style: italic; font-size: 9pt; margin-top: 20px; color: #5a4a2f; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="banner">
+    <div class="brand">INVEST LIKE A WARRIOR</div>
+    <h1>BUILD YOUR CHARACTER</h1>
+    <div class="tag">Answer six questions. Meet your financial character — scores run 8–20, and nobody scores below 8.</div>
+  </header>
+
+  <div class="card">
+    <h2>YOUR WARRIOR</h2>
+    <label class="flabel" for="nameInput">Character name (optional)</label>
+    <input type="text" id="nameInput" placeholder="e.g. Alex the Bold" autocomplete="off">
+    <label class="flabel">Choose your class — flavor only, the math is the same for every warrior</label>
+    <div class="classes" id="classPicker">
+      <label><input type="radio" name="wclass" value="knight" checked>Knight</label>
+      <label><input type="radio" name="wclass" value="samurai">Samurai</label>
+      <label><input type="radio" name="wclass" value="pirate">Pirate</label>
+      <label><input type="radio" name="wclass" value="viking">Viking</label>
+      <label><input type="radio" name="wclass" value="monk">Monk</label>
+      <label><input type="radio" name="wclass" value="ninja">Ninja</label>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>STRENGTH · INCOME <span class="scorechip" id="chipSTR"></span></h2>
+    <div class="instr">Your total yearly income, all sources. Paid monthly? Monthly × 12 = yearly.</div>
+    <label class="flabel" for="inSTR">Yearly income ($)</label>
+    <input type="number" id="inSTR" min="0" inputmode="numeric" placeholder="e.g. 62000">
+  </div>
+
+  <div class="card">
+    <h2>DEXTERITY · LIQUIDITY <span class="scorechip" id="chipDEX"></span></h2>
+    <div class="instr">If your income stopped today, how many months could your savings cover your bills? Count only full months.</div>
+    <label class="flabel" for="inDEX">Months of cover</label>
+    <input type="number" id="inDEX" min="0" step="1" inputmode="numeric" placeholder="e.g. 3">
+  </div>
+
+  <div class="card">
+    <h2>CONSTITUTION · NET WORTH <span class="scorechip" id="chipCON"></span></h2>
+    <div class="instr">What you own minus what you owe. Build it below — or skip the workshop if you already know your number. Own a home? List its full value as an asset and its mortgage as a debt — the math finds your equity for you.</div>
+    <div class="radioline">
+      <label><input type="radio" name="conmode" value="panel" checked> Build it from assets &amp; debts</label>
+      <label><input type="radio" name="conmode" value="quick"> I know my net worth</label>
+    </div>
+    <div id="conPanel">
+      <div class="twocol">
+        <div>
+          <div class="colhead">ASSETS</div>
+          <div class="moneyrow"><input type="text" placeholder="Asset" aria-label="Asset name"><input type="number" class="assetAmt" min="0" inputmode="numeric" placeholder="$" aria-label="Asset value"></div>
+          <div class="moneyrow"><input type="text" placeholder="Asset" aria-label="Asset name"><input type="number" class="assetAmt" min="0" inputmode="numeric" placeholder="$" aria-label="Asset value"></div>
+          <div class="moneyrow"><input type="text" placeholder="Asset" aria-label="Asset name"><input type="number" class="assetAmt" min="0" inputmode="numeric" placeholder="$" aria-label="Asset value"></div>
+          <div class="totalrow"><span>TOTAL</span><span id="assetsTotal">$0</span></div>
+        </div>
+        <div>
+          <div class="colhead">DEBTS</div>
+          <div class="moneyrow"><input type="text" placeholder="Debt" aria-label="Debt name"><input type="number" class="debtAmt" min="0" inputmode="numeric" placeholder="$" aria-label="Debt balance"></div>
+          <div class="moneyrow"><input type="text" placeholder="Debt" aria-label="Debt name"><input type="number" class="debtAmt" min="0" inputmode="numeric" placeholder="$" aria-label="Debt balance"></div>
+          <div class="moneyrow"><input type="text" placeholder="Debt" aria-label="Debt name"><input type="number" class="debtAmt" min="0" inputmode="numeric" placeholder="$" aria-label="Debt balance"></div>
+          <div class="totalrow"><span>TOTAL</span><span id="debtsTotal">$0</span></div>
+        </div>
+      </div>
+      <div class="eqline">NET WORTH&nbsp; <b id="conNet">—</b></div>
+      <div class="microcopy" id="conMicro"></div>
+    </div>
+    <div id="conQuick" style="display:none">
+      <label class="flabel" for="inCON">Net worth ($) — negative is allowed, most warriors start there</label>
+      <input type="number" id="inCON" inputmode="numeric" placeholder="e.g. -4500">
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>INTELLIGENCE · CREDIT <span class="scorechip" id="chipINT"></span></h2>
+    <div class="instr">Your credit score (300–850). Don't know it? Most banking apps show it free.</div>
+    <label class="flabel" for="inINT">Credit score</label>
+    <input type="number" id="inINT" min="300" max="850" inputmode="numeric" placeholder="e.g. 705">
+  </div>
+
+  <div class="card">
+    <h2>WISDOM · DEBT DISCIPLINE <span class="scorechip" id="chipWIS"></span></h2>
+    <div class="instr">Add up your monthly debt payments. Divide by your monthly income. That's your DTI — example: $600 ÷ $3,000 = 20%.</div>
+    <div class="twocol">
+      <div>
+        <label class="flabel" for="inWISpay">Monthly debt payments ($)</label>
+        <input type="number" id="inWISpay" min="0" inputmode="numeric" placeholder="e.g. 600">
+      </div>
+      <div>
+        <label class="flabel" for="inWISinc">Monthly income ($)</label>
+        <input type="number" id="inWISinc" min="0" inputmode="numeric" placeholder="e.g. 3000">
+      </div>
+    </div>
+    <div class="readout" id="wisReadout"></div>
+  </div>
+
+  <div class="card">
+    <h2>CHARISMA · NETWORK <span class="scorechip" id="chipCHA"></span></h2>
+    <div class="instr">Count the people you could ask for a professional favor — a referral, an introduction, a connection to money — and reasonably expect a yes. Not followers. Not contacts. People who would answer.</div>
+    <label class="flabel" for="inCHA">People who would say yes</label>
+    <input type="number" id="inCHA" min="0" step="1" inputmode="numeric" placeholder="e.g. 12">
+  </div>
+
+  <div class="card" id="resultsCard">
+    <h2>YOUR CHARACTER</h2>
+    <div id="resultsList"></div>
+    <div id="resultsNote"></div>
+  </div>
+
+  <div class="upsell">
+    <div class="q">THE CAMPAIGN CONTINUES</div>
+    <div class="offer">A character sheet is a snapshot. The Financial Campaign Journal turns it into a campaign — track your quests, watch your stats climb. · investlikeawarrior.com</div>
+  </div>
+
+  <button class="printbtn" id="printBtn" type="button">PRINT MY CHARACTER SHEET</button>
+
+  <footer>Invest Like a Warrior · Educational, not personalized financial advice.</footer>
+</div>
+
+<div id="printSheet"></div>
+
+<script>
+// === SCORING (pure) — mirrors scoring-build-spec-v1.md (LOCKED 2026-10-20) ===
+function bandLookup(v, bands) {
+  for (var i = 0; i < bands.length; i++) { if (v <= bands[i][0]) return bands[i][1]; }
+  return bands[bands.length - 1][1];
+}
+function calcSTR(annualIncome) {
+  return bandLookup(annualIncome, [[20000,8],[40000,10],[55000,12],[75000,14],[100000,16],[149999,18],[Infinity,20]]);
+}
+function calcDEX(months) {
+  var m = Math.floor(months);
+  if (m < 1) return 8; if (m < 2) return 10; if (m < 3) return 12;
+  if (m < 4) return 14; if (m < 5) return 16; if (m < 6) return 18; return 20;
+}
+function calcCON(netWorth) {
+  return bandLookup(netWorth, [[10000,8],[50000,10],[100000,12],[250000,14],[500000,16],[1000000,18],[Infinity,20]]);
+}
+function calcINT(credit) {
+  return bandLookup(credit, [[579,8],[669,10],[739,14],[799,18],[Infinity,20]]);
+}
+function calcWIS(dtiPercent) {
+  return bandLookup(dtiPercent, [[15,20],[25,18],[35,16],[43,14],[50,12],[60,10],[Infinity,8]]);
+}
+function calcCHA(favorCount) {
+  return bandLookup(favorCount, [[2,8],[5,10],[10,12],[20,14],[35,16],[50,18],[Infinity,20]]);
+}
+function tierOf(score) {
+  if (score >= 20) return "Legendary";
+  if (score >= 16) return "Strong";
+  if (score >= 12) return "Stable";
+  return "Fragile";
+}
+// === END SCORING ===
+
+var CLASS_NAMES = {
+  knight: "Financial Knight", samurai: "Cashflow Samurai", viking: "Market Viking",
+  pirate: "Business Pirate", ninja: "Market Ninja", monk: "Frugal Monk"
+};
+var STAT_META = [
+  { key: "STR", name: "STRENGTH", domain: "Income" },
+  { key: "DEX", name: "DEXTERITY", domain: "Liquidity" },
+  { key: "CON", name: "CONSTITUTION", domain: "Net Worth" },
+  { key: "INT", name: "INTELLIGENCE", domain: "Credit" },
+  { key: "WIS", name: "WISDOM", domain: "Debt Discipline" },
+  { key: "CHA", name: "CHARISMA", domain: "Network" }
+];
+
+function $(id) { return document.getElementById(id); }
+function num(id) {
+  var el = $(id); if (!el) return null;
+  var v = parseFloat(el.value);
+  return isNaN(v) ? null : v;
+}
+function fmt$(v) {
+  var sign = v < 0 ? "-$" : "$";
+  return sign + Math.abs(Math.round(v)).toLocaleString("en-US");
+}
+function sumClass(cls) {
+  var els = document.querySelectorAll("." + cls), total = 0, any = false;
+  for (var i = 0; i < els.length; i++) {
+    var v = parseFloat(els[i].value);
+    if (!isNaN(v)) { total += v; any = true; }
+  }
+  return any ? total : null;
+}
+function selectedClass() {
+  var r = document.querySelector('input[name="wclass"]:checked');
+  return r ? r.value : "knight";
+}
+function conMode() {
+  var r = document.querySelector('input[name="conmode"]:checked');
+  return r ? r.value : "panel";
+}
+
+function computeScores() {
+  var s = {};
+  var v;
+  v = num("inSTR"); s.STR = (v === null) ? null : calcSTR(v);
+  v = num("inDEX"); s.DEX = (v === null) ? null : calcDEX(v);
+  if (conMode() === "quick") {
+    v = num("inCON"); s.CON = (v === null) ? null : calcCON(v);
+    s.netWorth = v;
+  } else {
+    var a = sumClass("assetAmt"), d = sumClass("debtAmt");
+    if (a === null && d === null) { s.CON = null; s.netWorth = null; }
+    else {
+      s.netWorth = (a || 0) - (d || 0);
+      s.CON = calcCON(s.netWorth);
+    }
+    s.assets = a, s.debts = d;
+  }
+  v = num("inINT"); s.INT = (v === null) ? null : calcINT(v);
+  var pay = num("inWISpay"), inc = num("inWISinc");
+  if (pay === null || inc === null || inc <= 0) { s.WIS = null; s.dti = null; }
+  else { s.dti = (pay / inc) * 100; s.WIS = calcWIS(s.dti); }
+  v = num("inCHA"); s.CHA = (v === null) ? null : calcCHA(v);
+  return s;
+}
+
+function render() {
+  var s = computeScores();
+
+  // CON panel readouts
+  if (conMode() === "panel") {
+    $("assetsTotal").textContent = fmt$(s.assets || 0);
+    $("debtsTotal").textContent = fmt$(s.debts || 0);
+    $("conNet").textContent = (s.netWorth === null || s.netWorth === undefined) ? "—" : fmt$(s.netWorth);
+    $("conMicro").textContent = (typeof s.netWorth === "number" && s.netWorth < 0)
+      ? "Below zero? Every warrior starts somewhere — your first quest is now clear." : "";
+  }
+  // WIS readout
+  $("wisReadout").innerHTML = (typeof s.dti === "number")
+    ? "Your DTI: <b>" + (Math.round(s.dti * 10) / 10) + "%</b>" : "";
+
+  // chips
+  STAT_META.forEach(function (m) {
+    var chip = $("chip" + m.key);
+    chip.innerHTML = (s[m.key] === null) ? "" : "<b>" + s[m.key] + "</b> / 20 · " + tierOf(s[m.key]);
+  });
+
+  // results
+  var scored = STAT_META.filter(function (m) { return s[m.key] !== null; });
+  var lowest = null;
+  if (scored.length) {
+    var min = Math.min.apply(null, scored.map(function (m) { return s[m.key]; }));
+    lowest = scored.filter(function (m) { return s[m.key] === min; });
+  }
+  var html = "";
+  STAT_META.forEach(function (m) {
+    var isLow = lowest && scored.length === 6 && lowest.indexOf(m) >= 0;
+    html += '<div class="result-row' + (isLow ? " lowest" : "") + '">' +
+      '<div class="circle">' + (s[m.key] === null ? "–" : s[m.key]) + "</div>" +
+      '<div><div class="rname">' + m.name + " · " + m.domain + "</div>" +
+      '<div class="rtier">' + (s[m.key] === null ? "not yet forged" : tierOf(s[m.key])) + "</div></div></div>";
+  });
+  $("resultsList").innerHTML = html;
+
+  var note = "";
+  if (scored.length === 6) {
+    var names = lowest.map(function (m) { return m.name; }).join(" & ");
+    note = '<div class="questline">Your lowest score: ' + names + " (" + min + ") — that's your first quest.</div>";
+  } else {
+    note = '<div class="incomplete">' + (6 - scored.length) + " stat" + ((6 - scored.length) === 1 ? "" : "s") +
+      " left — fill in every stat to complete your character. A blank is unfinished, never a failing score.</div>";
+  }
+  $("resultsNote").innerHTML = note;
+
+  // print sheet
+  var who = ($("nameInput").value || "Unnamed Warrior") + " · " + (CLASS_NAMES[selectedClass()] || "Warrior");
+  var rows = "";
+  STAT_META.forEach(function (m) {
+    rows += "<tr><td>" + m.name + " (" + m.domain + ")</td><td>" +
+      (s[m.key] === null ? "—" : s[m.key] + " / 20 · " + tierOf(s[m.key])) + "</td></tr>";
+  });
+  $("printSheet").innerHTML =
+    "<h1>FINANCIAL CHARACTER SHEET</h1>" +
+    '<div class="pwho">' + who + "</div>" +
+    "<table>" + rows + "</table>" +
+    (scored.length === 6 ? '<div class="pquest">Lowest score: ' + lowest.map(function (m) { return m.name; }).join(" & ") + " — your first quest.</div>" : "") +
+    '<div class="pfoot">Invest Like a Warrior · investlikeawarrior.com · A character sheet is a snapshot — track the campaign in the Financial Campaign Journal.</div>';
+}
+
+document.querySelectorAll("input").forEach(function (el) {
+  el.addEventListener("input", render);
+  el.addEventListener("change", render);
+});
+document.querySelectorAll('input[name="conmode"]').forEach(function (el) {
+  el.addEventListener("change", function () {
+    var quick = conMode() === "quick";
+    $("conPanel").style.display = quick ? "none" : "";
+    $("conQuick").style.display = quick ? "" : "none";
+    render();
+  });
+});
+$("printBtn").addEventListener("click", function () { render(); window.print(); });
+render();
+</script>
+</body>
+</html>
