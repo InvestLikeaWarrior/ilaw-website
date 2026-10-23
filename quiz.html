@@ -6,10 +6,10 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <title>What Warrior Are You? · Invest Like a Warrior</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Ten questions. No right answers. Discover your financial warrior class." />
+  <meta name="description" content="Seven questions. No right answers. Discover your financial warrior class." />
   <!-- Open Graph -->
   <meta property="og:title" content="What Warrior Are You? · Invest Like a Warrior" />
-  <meta property="og:description" content="Ten questions. No right answers. Discover your financial warrior class." />
+  <meta property="og:description" content="Seven questions. No right answers. Discover your financial warrior class." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://investlikeawarrior.com/quiz.html" />
   <meta property="og:image" content="https://investlikeawarrior.com/assets/og-image.jpg" />
@@ -794,7 +794,7 @@
     <div class="screen active" id="screen-intro">
       <div class="intro-eyebrow">Discover Your Class</div>
       <h1 class="intro-title">What Warrior Are You?</h1>
-      <p class="intro-sub">Ten questions. No right answers. Walk away knowing which of the six warrior classes matches your financial personality and what that means for how you build wealth.</p>
+      <p class="intro-sub">Seven questions. No right answers. Walk away knowing which of the six warrior classes matches your financial personality and what that means for how you build wealth.</p>
       <button class="btn-start" onclick="startQuiz()">Begin the Quiz ⚔</button>
     </div>
 
@@ -918,111 +918,78 @@
       {
         text: 'How do you best prepare for a job loss?',
         choices: [
-          { text: 'Maintain a well connected network for job opportunities', class: 'knight' },
-          { text: 'Live frugally, save, and use emergency funds during job transitions', class: 'monk' },
-          { text: 'Pursue side-hustles on weekends for backup income', class: 'pirate' },
-          { text: 'Cut spending and temporarily live with someone for support', class: 'viking' },
-          { text: 'Plan backup job options while employed for a focused job search', class: 'samurai' },
-          { text: 'Work in high-demand fields for faster job replacement', class: 'ninja' }
+          { text: 'Run a side hustle', class: 'pirate' },
+          { text: 'Keep my network warm', class: 'knight' },
+          { text: 'Always have a backup plan', class: 'samurai' },
+          { text: 'Live off emergency savings', class: 'monk' },
+          { text: 'Stay in high-demand work', class: 'ninja' },
+          { text: 'Cut spending, lean on family', class: 'viking' }
         ]
       },
       {
         text: 'I want to prepare for retirement by',
         choices: [
-          { text: 'Seizing investment opportunities for lifelong benefits', class: 'ninja' },
-          { text: 'Establishing a business for post-work income', class: 'pirate' },
-          { text: 'Investing in real estate for lasting cash flow', class: 'samurai' },
-          { text: 'Downsizing and pursuing passion-driven work indefinitely', class: 'monk' },
-          { text: 'Investing in my children\'s future for personal care', class: 'knight' },
-          { text: 'Creating an opportunity network for continuous earnings', class: 'viking' }
+          { text: 'Rental income, every month', class: 'samurai' },
+          { text: 'Guaranteed income, no surprises', class: 'knight' },
+          { text: 'Big wins, timed right', class: 'ninja' },
+          { text: 'An empire my kids inherit', class: 'viking' },
+          { text: 'Simple living, fewer needs', class: 'monk' },
+          { text: 'Income streams I control', class: 'pirate' }
         ]
       },
       {
         text: 'The asset that excites me most is:',
         choices: [
-          { text: 'Cryptocurrency', class: 'ninja' },
-          { text: 'Real Estate', class: 'samurai' },
-          { text: 'Stocks, mutual funds, bonds, retirement accounts', class: 'knight' },
-          { text: 'Owning a Business', class: 'pirate' },
-          { text: 'Green Energy', class: 'monk' },
-          { text: 'Precious Metals and Rare Earths', class: 'viking' }
-        ]
-      },
-      {
-        text: 'My ideal home is:',
-        choices: [
-          { text: 'Downtown condo in a lively area', class: 'ninja' },
-          { text: 'Grand mansion', class: 'viking' },
-          { text: 'Mid-sized house', class: 'knight' },
-          { text: 'Off-grid sustainable home', class: 'monk' },
-          { text: 'Boat living in an upscale harbor', class: 'pirate' },
-          { text: 'Home-free with global travel ability', class: 'samurai' }
-        ]
-      },
-      {
-        text: 'I view money as:',
-        choices: [
-          { text: 'A money-making tool', class: 'ninja' },
-          { text: 'A scarce resource to manage carefully', class: 'monk' },
-          { text: 'Available for the taking', class: 'pirate' },
-          { text: 'Unlimited, if you know where to look', class: 'viking' },
-          { text: 'The root of many problems', class: 'knight' },
-          { text: 'The reward for hard work', class: 'samurai' }
-        ]
-      },
-      {
-        text: 'The best allies in warfare are:',
-        choices: [
-          { text: 'Family and Friends', class: 'knight' },
-          { text: 'Formal military', class: 'viking' },
-          { text: 'High-paid mercenaries', class: 'ninja' },
-          { text: 'The enemy', class: 'pirate' },
-          { text: 'Politicians', class: 'samurai' },
-          { text: 'Self-reliance. I need no allies', class: 'monk' }
+          { text: 'Crypto', class: 'ninja' },
+          { text: 'Index funds and bonds', class: 'knight' },
+          { text: 'Gold and land', class: 'viking' },
+          { text: 'Real estate', class: 'samurai' },
+          { text: 'My own business', class: 'pirate' },
+          { text: 'Cash, kept simple', class: 'monk' }
         ]
       },
       {
         text: 'I prefer working',
         choices: [
-          { text: 'In a team', class: 'knight' },
-          { text: 'Solo, with family', class: 'viking' },
           { text: 'For myself', class: 'pirate' },
-          { text: 'With vetted colleagues', class: 'samurai' },
-          { text: 'With a group from the same community', class: 'ninja' },
-          { text: 'Alongside random strangers. I trust the work, not the person', class: 'monk' }
+          { text: 'With trusted partners', class: 'samurai' },
+          { text: 'On a team', class: 'knight' },
+          { text: 'Alone, in peace', class: 'monk' },
+          { text: 'With my family', class: 'viking' },
+          { text: 'With my own crew', class: 'ninja' }
         ]
       },
       {
         text: 'When I die, I want to:',
         choices: [
-          { text: 'Provide my family the resources to thrive', class: 'knight' },
-          { text: 'Leave a lasting Family Empire', class: 'viking' },
-          { text: 'Share my knowledge as widely as possible', class: 'monk' },
-          { text: 'Create an enduring Brand', class: 'pirate' },
-          { text: 'Have fought fiercely and left my mark', class: 'samurai' },
-          { text: 'Have achieved anonymously. Impact felt, name unknown', class: 'ninja' }
+          { text: 'Leave a family empire', class: 'viking' },
+          { text: 'Leave my family provided for', class: 'knight' },
+          { text: 'Leave no trace behind', class: 'ninja' },
+          { text: 'Leave wisdom, not wealth', class: 'monk' },
+          { text: 'Have fought with honor', class: 'samurai' },
+          { text: 'Leave a brand behind', class: 'pirate' }
         ]
       },
       {
         text: 'Your preferred weapon is:',
         choices: [
-          { text: 'Mace: One solid hit', class: 'knight' },
-          { text: 'Katana: Out-finesse your foes', class: 'samurai' },
-          { text: 'Ninja Sword: Precise kills', class: 'ninja' },
-          { text: 'Cutlass: Close combat', class: 'pirate' },
-          { text: "Monk's Staff: Subdue, spare lives", class: 'monk' },
-          { text: 'Viking Axe: Unleash devastation', class: 'viking' }
+          { text: 'Katana: out-finesse your foes', class: 'samurai' },
+          { text: 'Mace: one solid hit', class: 'knight' },
+          { text: 'Cutlass: close combat', class: 'pirate' },
+          { text: 'Axe: unleash devastation', class: 'viking' },
+          { text: 'Staff: subdue, spare lives', class: 'monk' },
+          { text: 'Ninja sword: precise kills', class: 'ninja' }
         ]
       },
       {
         text: 'Which of the following is most important to you?',
         choices: [
-          { text: 'Stability', class: 'knight' },
-          { text: 'Power', class: 'viking' },
-          { text: 'Knowledge', class: 'samurai' },
           { text: 'Freedom', class: 'pirate' },
-          { text: 'Valor', class: 'ninja' },
-          { text: 'Peace', class: 'monk' }
+          { text: 'Peace', class: 'monk' },
+          { text: 'Stability', class: 'knight' },
+          { text: 'Knowledge', class: 'samurai' },
+          { text: 'Power', class: 'viking' },
+          { text: 'Valor', class: 'ninja' }
         ]
       }
     ];
@@ -1092,7 +1059,9 @@
     }
 
     function showEmailGate() {
-      pendingWinner = Object.keys(scores).reduce((a, b) => scores[a] >= scores[b] ? a : b);
+      const top = Math.max(...Object.values(scores));
+      const leaders = Object.keys(scores).filter(k => scores[k] === top);
+      pendingWinner = leaders[Math.floor(Math.random() * leaders.length)];
       document.getElementById('gate-warrior-class').value = pendingWinner;
       document.getElementById('progress-label').style.display = 'none';
       document.getElementById('progress-fill').style.width = '100%';
