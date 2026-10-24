@@ -330,27 +330,6 @@
       border-color: var(--gold);
     }
 
-    /* Emblem — centered, floats up on hover to reveal portrait */
-    .panel-emblem {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -58%);
-      width: 54%;
-      max-width: 260px;
-      opacity: 0.85;
-      pointer-events: none;
-      transition: opacity 0.45s ease, transform 0.5s ease, filter 0.4s ease;
-      filter: drop-shadow(0 8px 32px rgba(0,0,0,0.6));
-      z-index: 2;
-    }
-
-    .hero-panel:hover .panel-emblem {
-      opacity: 0.18;
-      transform: translate(-50%, -72%) scale(0.88);
-      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
-    }
-
     @media (max-width: 768px) {
       /* Horizontal swipe carousel */
       .hero-panels {
@@ -877,7 +856,6 @@
     <!-- Panel 1: Financial Character Sheet -->
     <a class="hero-panel" href="calculator.html">
       <div class="panel-bg"></div>
-      <img class="panel-emblem" src="assets/emblem-knight.png" alt="" />
       <div class="panel-overlay"></div>
       <div class="panel-content">
         <div class="panel-eyebrow">Free Financial Character Sheet</div>
