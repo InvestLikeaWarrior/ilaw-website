@@ -640,15 +640,15 @@
 
   <!-- Page Header -->
   <section class="page-header">
-    <div class="page-eyebrow">Founding Warrior Program · Limited Availability</div>
+    <div class="page-eyebrow">Private 1-on-1 Coaching · $20 per Session</div>
     <h1 class="page-title">Start Your Campaign</h1>
     <p class="page-sub">
-      We're opening a small cohort of founding spots for the ILAW coaching pilot. Sessions are complimentary. In exchange, we ask for a structured debrief after each call. Your feedback shapes the system.
+      Private 1-on-1 coaching with Jamie, over Zoom. 30 minutes, $20 a session — bought one at a time. Tell us where you are and we'll schedule your first call.
     </p>
     <div class="founding-bar">
-      <div class="founding-pill">⚔ 4 Founding Spots</div>
-      <div class="founding-pill">Complimentary During Pilot</div>
-      <div class="founding-pill">Paid Program Launching After Beta</div>
+      <div class="founding-pill">⚔ Private 1-on-1</div>
+      <div class="founding-pill">$20 per Session</div>
+      <div class="founding-pill">Over Zoom · 30 Minutes</div>
     </div>
   </section>
 
@@ -658,32 +658,10 @@
     <!-- Form -->
     <div class="intake-form-wrap">
 
-      <!-- Cohort Full State -->
-      <div class="form-success" id="cohort-full" style="display:none;">
-        <div class="success-icon">⚔️</div>
-        <div class="success-title">The founding cohort is full.</div>
-        <p class="success-text">All 4 founding spots have been claimed. We're already building the next cohort. Drop your name and email below and you'll be first in line when we open applications.</p>
-        <form name="ilaw-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="margin-top:24px;text-align:left;">
-          <input type="hidden" name="form-name" value="ilaw-waitlist" />
-          <p style="display:none;"><input name="bot-field" /></p>
-          <div class="contact-fields" style="margin-bottom:12px;">
-            <div class="field-group">
-              <label class="field-label" for="waitlist-name">Full Name</label>
-              <input type="text" id="waitlist-name" name="name" placeholder="Jamie Hoffman" required />
-            </div>
-            <div class="field-group">
-              <label class="field-label" for="waitlist-email">Email Address</label>
-              <input type="email" id="waitlist-email" name="email" placeholder="you@email.com" required />
-            </div>
-          </div>
-          <button type="submit" class="btn-submit">Join the Waitlist ⚔️</button>
-        </form>
-      </div>
-
       <div class="form-success" id="form-success">
         <div class="success-icon">⚔️</div>
         <div class="success-title">Your application is in.</div>
-        <p class="success-text">Jamie will review your intake and reach out within a few days to confirm your founding spot and schedule your first session. As a Founding Warrior, you'll receive a short debrief form after each call. That feedback is what shapes the paid program.</p>
+        <p class="success-text">Jamie will review your intake and reach out within a few days to schedule your first session — 30 minutes over Zoom, $20 a session. After each call, you'll get a short debrief form. Your feedback is what shapes the program.</p>
       </div>
 
       <form name="ilaw-intake" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="intake-form">
@@ -691,8 +669,8 @@
         <p style="display:none;"><input name="bot-field" /></p>
 
         <div class="form-intro">
-          <div class="form-intro-title">Welcome, Founding Warrior.</div>
-          <p class="form-intro-text">You're applying for one of 4 founding spots in the ILAW coaching pilot. If accepted, your sessions are complimentary. No cost, no commitment. What we ask in return is a short debrief after each call. Your feedback is how we build this into something worth paying for.</p>
+          <div class="form-intro-title">Welcome, Warrior.</div>
+          <p class="form-intro-text">You're starting a private 1-on-1 coaching campaign with Jamie — 30 minutes over Zoom, $20 a session, bought one at a time. What we ask in return is a short debrief after each call. Your feedback is how we build this into something worth paying for.</p>
           <p class="form-intro-text" style="margin-top:10px;">There are no right or wrong answers below. We're not asking for bank statements or tax returns. Just your situation in your own words. Fill it out honestly and we'll take it from there.</p>
         </div>
 
@@ -813,8 +791,8 @@
 
         <div class="form-divider"></div>
 
-        <button type="submit" class="btn-submit" id="submit-btn">Apply for a Founding Spot ⚔️</button>
-        <p class="form-disclaimer">Founding spots are limited to 4 and subject to review. Submitting this form is not a guarantee of a session. ILAW never stores your actual financial figures. Only your warrior scores. This is not financial advice.</p>
+        <button type="submit" class="btn-submit" id="submit-btn">Start My Campaign ⚔️</button>
+        <p class="form-disclaimer">Submitting this form is not a guarantee of a session. Sessions are $20 each, over Zoom. ILAW never stores your actual financial figures. Only your warrior scores. This is not financial advice.</p>
 
       </form>
     </div>
@@ -823,11 +801,13 @@
     <aside class="intake-sidebar">
 
       <div class="sidebar-card" style="border-color: var(--gold-border); background: radial-gradient(circle at top left, #15110a 0%, #0a0905 100%);">
-        <div class="sidebar-label">The Founding Offer</div>
+        <div class="sidebar-label">The Offer</div>
         <div class="sidebar-title">What You're Getting</div>
-        <p class="sidebar-text">Four complimentary 30-minute 1-on-1 coaching sessions with Jamie. No pitch, no upsell. Built around your warrior class and ability scores. All we ask is an honest debrief after each call.</p>
+        <p class="sidebar-text">Private 30-minute 1-on-1 coaching sessions with Jamie, over Zoom — $20 a session, bought one at a time. No pitch, no upsell. Built around your warrior class and ability scores. All we ask is an honest debrief after each call.</p>
         <div style="height:1px;background:var(--border);margin:12px 0;"></div>
-        <p class="sidebar-text" style="margin-bottom:0;font-size:0.78rem;">This program moves to a paid model after the founding cohort. Founding Warriors get the full experience first.</p>
+        <p class="sidebar-text" style="margin-bottom:12px;font-size:0.78rem;">Sessions are $20 each. The full campaign is four sessions — start with one.</p>
+        <!-- TODO: replace [GUMROAD_SESSION_LINK] with the Gumroad session product URL -->
+        <a class="btn-sidebar" href="[GUMROAD_SESSION_LINK]" target="_blank" onclick="if (typeof gtag === 'function') gtag('event', 'gumroad_click', { link_location: 'intake_sidebar' });">Buy Your Session — $20</a>
       </div>
 
       <div class="sidebar-card">
@@ -872,18 +852,9 @@
   </footer>
 
   <script>
-    // ── Cohort toggle ── flip to true when all spots are filled
-    const COHORT_FULL = false;
-
     const form = document.getElementById('intake-form');
     const success = document.getElementById('form-success');
-    const cohortFull = document.getElementById('cohort-full');
     const submitBtn = document.getElementById('submit-btn');
-
-    if (COHORT_FULL) {
-      form.style.display = 'none';
-      cohortFull.style.display = 'block';
-    }
 
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
