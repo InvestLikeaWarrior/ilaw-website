@@ -565,38 +565,12 @@
       min-height: 560px;
     }
 
-    .quiz-warrior {
-      position: absolute;
-      pointer-events: none;
-      width: auto;
-      opacity: 0.92;
-      z-index: 1;
-    }
-
-    .quiz-warrior-pirate {
-      left: 60px;
-      top: 40px;
-      height: 360px;
-    }
-
-    .quiz-warrior-samurai {
-      right: 10%;
-      top: 40px;
-      height: 360px;
-    }
-
-    .quiz-warrior-monk {
-      right: -2%;
-      top: 70px;
-      height: 360px;
-    }
-
     .quiz-wrap {
       position: relative;
       z-index: 2;
       max-width: var(--max);
       margin: 0 auto;
-      padding: 80px 32px 72px 200px;
+      padding: 80px 32px 72px;
     }
 
     .quiz-cta-block {
@@ -787,7 +761,6 @@
       .hero-sub { font-size: 0.9rem; }
       .panel-title { font-size: 1.4rem; }
       .panel-content { padding: 24px 16px; }
-      .quiz-warrior { display: none; }
       .quiz-wrap { padding: 56px 20px 56px; }
       .quiz-cta-block { padding: 28px 20px; }
       .about-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -887,9 +860,6 @@
 
   <!-- Quiz -->
   <section class="quiz-section" id="quiz">
-    <img class="quiz-warrior quiz-warrior-pirate"  src="assets/bust-pirate.png"  alt="" />
-    <img class="quiz-warrior quiz-warrior-samurai" src="assets/bust-samurai.png" alt="" />
-    <img class="quiz-warrior quiz-warrior-monk"    src="assets/bust-monk.png"    alt="" />
     <div class="quiz-wrap">
       <div class="section-label">Discover Your Class</div>
       <h2 class="section-title">Financial Warrior Class Quiz</h2>

@@ -884,13 +884,11 @@
       samurai: {
         name: 'The Samurai',
         tagline: 'Wealth Generation and Power',
-        portrait: 'assets/portrait-samurai.png',
         desc: 'As a Samurai, you aim to serve others by acquiring and managing real estate and cashflow assets. You strategically use debt to expand your asset portfolio, growing your clan\'s power and influence in the process. Discipline and long-term thinking are your greatest weapons.'
       },
       pirate: {
         name: 'The Pirate',
         tagline: 'Freedom and Independence',
-        portrait: 'assets/portrait-pirate.png',
         desc: 'As a Pirate, you live and invest on your own terms. You build multiple income streams, seize opportunities others overlook, and refuse to be tied to a single employer or strategy. Your financial freedom comes from relentless hustle and the willingness to sail into uncharted waters.'
       },
       viking: {
@@ -902,7 +900,6 @@
       monk: {
         name: 'The Monk',
         tagline: 'Minimalism and Peace',
-        portrait: 'assets/portrait-monk.png',
         desc: 'As a Monk, you understand that enough is truly enough. You build financial peace through frugality, intentional living, and the quiet accumulation of knowledge. You do not need the most. You need the right things. And you protect that peace with the same discipline a warrior protects a fortress.'
       },
       ninja: {
@@ -1076,7 +1073,13 @@
     function showResult() {
       const r = RESULTS[pendingWinner];
 
-      document.getElementById('result-portrait').style.backgroundImage = `url('${r.portrait}')`;
+      const resultPortrait = document.getElementById('result-portrait');
+      if (r.portrait) {
+        resultPortrait.style.backgroundImage = `url('${r.portrait}')`;
+        resultPortrait.style.display = '';
+      } else {
+        resultPortrait.style.display = 'none';
+      }
       document.getElementById('result-class').textContent = r.name;
       document.getElementById('result-tagline').textContent = r.tagline;
       document.getElementById('result-desc').textContent = r.desc;
