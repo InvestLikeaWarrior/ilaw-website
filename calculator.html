@@ -98,6 +98,7 @@
   }
   .upsell .q { font-family: Cinzel, Georgia, serif; font-size: 16px; margin-bottom: 3px; }
   .upsell .offer { font-style: italic; color: #5a4a2f; font-size: 14px; }
+  a.downloadbtn { display: block; text-align: center; margin-top: 12px; font-weight: bold; }
   button.printbtn {
     display: block; width: 100%; padding: 12px; cursor: pointer;
     font-family: Cinzel, Georgia, serif; font-size: 15px; letter-spacing: 1px;
@@ -105,6 +106,7 @@
   }
   footer { text-align: center; font-style: italic; color: #5a4a2f; font-size: 13px; margin-top: 14px; }
   #printSheet { display: none; }
+  @page { size: Letter; margin: 0.5in; }
   @media print {
     body { background: #fff; padding: 0; }
     .wrap { display: none; }
@@ -231,6 +233,8 @@
   </div>
 
   <button class="printbtn" id="printBtn" type="button">PRINT MY CHARACTER SHEET</button>
+
+<a class="downloadbtn" id="downloadSheetBtn" href="assets/ilaw-character-sheet.pdf">DOWNLOAD THE PRINTABLE SHEET (PDF)</a>
 
   <footer>Invest Like a Warrior · Educational, not personalized financial advice.</footer>
 </div>
@@ -415,7 +419,16 @@ document.querySelectorAll('input[name="conmode"]').forEach(function (el) {
     render();
   });
 });
-$("printBtn").addEventListener("click", function () { render(); if (typeof gtag === 'function') gtag('event', 'sheet_print', { source: 'calculator' }); window.print(); });
+var _ilawSheetPrintFired = false;
+function _ilawFireSheetPrint() {
+  if (_ilawSheetPrintFired) return;
+  _ilawSheetPrintFired = true;
+  if (typeof gtag === 'function') gtag('event', 'sheet_print', { source: 'calculator' });
+}
+$("printBtn").addEventListener("click", function () { render(); _ilawFireSheetPrint(); window.print(); });
+window.addEventListener("beforeprint", _ilawFireSheetPrint);
+window.addEventListener("afterprint", function () { _ilawSheetPrintFired = false; });
+$("downloadSheetBtn").addEventListener("click", function () { if (typeof gtag === 'function') gtag('event', 'sheet_download', { link_location: 'calculator_result' }); });
 render();
 </script>
 </body>
